@@ -12,10 +12,9 @@ extension FilterList {
 
     class View: UIView {
 
-        let tableView: UITableView = make {
-            $0.separatorStyle = .none
-            $0.backgroundColor = Color.koamaru
-            $0.isEditing = true
+        let collectionView: UICollectionView = make(layout: View.makeLayout()) { collectionView, _ in
+            collectionView.backgroundColor = Color.koamaru
+            collectionView.dragInteractionEnabled = true
         }
 
         init() {
@@ -31,12 +30,40 @@ extension FilterList {
 
 private extension FilterList.View {
 
+    static func makeLayout() -> UICollectionViewLayout {
+        let size = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(96)
+        )
+
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .zero
+        section.interGroupSpacing = .zero
+
+        let headerFooterSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(40)
+        )
+
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerFooterSize,
+            elementKind: "SectionHeaderElementKind",
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [sectionHeader]
+
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+
     func setup() {
         backgroundColor = Color.koamaru
-        addSubview(tableView)
+        addSubview(collectionView)
 
         NSLayoutConstraint.activate(
-            tableView.constraintsFillingSuperview()
+            collectionView.constraintsFillingSuperview()
         )
     }
 

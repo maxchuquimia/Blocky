@@ -22,21 +22,13 @@ extension FilterList {
 
         private var enabledFilters: [Filter] = []
         private var disabledFilters: [Filter] = []
+        private let filterDataSource: FilterDataSourceInterface
 
-        init() {
+        init(filterDataSource: FilterDataSourceInterface = FilterDataSource()) {
+            self.filterDataSource = filterDataSource
 
-            enabledFilters = [
-                Filter(name: "Some filter", rule: .exact(string: "This is a SPAM text message so yeah"), isCaseSensitive: false),
-                Filter(name: "Another filter", rule: .prefix(string: "Final Notice:"), isCaseSensitive: false),
-                Filter(name: "Even more filter", rule: .regex(expression: ".*http.*"), isCaseSensitive: true),
-            ]
-
-            disabledFilters = [
-                Filter(name: "This one is disabled", rule: .exact(string: "test"), isCaseSensitive: false),
-            ]
-
-
-            load()
+            readFilters()
+            presentFilters()
         }
 
     }
@@ -60,23 +52,65 @@ extension FilterList.Controller {
             disabledFilters.insert(targetItem, at: b.row)
         }
 
-        // TEST only
-        load()
+        // Re-compute .isEnabled and .order
+        enabledFilters = enabledFilters
+            .enumerated()
+            .map {
+                Filter(
+                    identifier: $1.identifier,
+                    name: $1.name,
+                    rule: $1.rule,
+                    isCaseSensitive: $1.isCaseSensitive,
+                    isEnabled: true,
+                    order: $0
+                )
+            }
+
+        disabledFilters = disabledFilters
+            .enumerated()
+            .map {
+                Filter(
+                    identifier: $1.identifier,
+                    name: $1.name,
+                    rule: $1.rule,
+                    isCaseSensitive: $1.isCaseSensitive,
+                    isEnabled: false,
+                    order: $0
+                )
+            }
+
+        storeFilters()
+        presentFilters()
     }
 
 }
 
 private extension FilterList.Controller {
 
-    func load() {
+    func readFilters() {
+        let allFilters = filterDataSource.readFilters()
 
-        let test = FilterList.ViewState.Configuration(
+        enabledFilters = allFilters
+            .filter(\.isEnabled)
+            .sorted(by: { $0.order < $1.order })
+
+        disabledFilters = allFilters
+            .filter({ !$0.isEnabled })
+            .sorted(by: { $0.order < $1.order })
+    }
+
+    func storeFilters() {
+        filterDataSource.write(filters: enabledFilters + disabledFilters)
+    }
+
+    func presentFilters() {
+        let viewConfiguration = FilterList.ViewState.Configuration(
             enabledFilters: enabledFilters,
             disabledFilters: disabledFilters,
             isEnabledInSettings: false
         )
 
-        viewState.value = .loaded(test)
+        viewState.value = .loaded(viewConfiguration)
     }
 
 }

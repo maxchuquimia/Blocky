@@ -46,6 +46,18 @@ extension FilterList {
             bind()
         }
 
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            contentView.collectionView.collectionViewLayout.invalidateLayout()
+            contentView.layoutIfNeeded()
+        }
+
+        override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+            super.viewWillTransition(to: size, with: coordinator)
+            coordinator.animate(alongsideTransition: { context in
+                self.contentView.collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: nil)
+        }
     }
 
 }
@@ -59,10 +71,12 @@ private extension FilterList.ViewController {
             }
             .store(in: &cancellables)
 
-        contentView.tableView.delegate = self
-        contentView.tableView.dataSource = self
-        contentView.tableView.register(FilterSummaryCell.self, forCellReuseIdentifier: "cell")
-        contentView.tableView.register(FilterListHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
+        contentView.collectionView.delegate = self
+        contentView.collectionView.dataSource = self
+        contentView.collectionView.dragDelegate = self
+        contentView.collectionView.dropDelegate = self
+        contentView.collectionView.register(FilterSummaryCell.self, forCellWithReuseIdentifier: "cell")
+        contentView.collectionView.register(FilterListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
     }
 
     func render(state: FilterList.ViewState) {
@@ -73,18 +87,18 @@ private extension FilterList.ViewController {
 
     func render(configuration: FilterList.ViewState.Configuration) {
         currentConfiguration = configuration
-        contentView.tableView.reloadData()
+        contentView.collectionView.reloadData()
     }
 
 }
 
-extension FilterList.ViewController: UITableViewDataSource {
+extension FilterList.ViewController: UICollectionViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         2
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch TableSection(rawValue: section) {
         case .enabled: return currentConfiguration.enabledFilters.count
         case .disabled: return currentConfiguration.disabledFilters.count
@@ -92,9 +106,9 @@ extension FilterList.ViewController: UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = TableSection(rawValue: indexPath.section)!
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FilterSummaryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FilterSummaryCell
 
         switch section {
         case .enabled:
@@ -103,41 +117,83 @@ extension FilterList.ViewController: UITableViewDataSource {
             cell.load(filter: currentConfiguration.disabledFilters[indexPath.row], isEnabled: false)
         }
 
-        cell.showsReorderControl = false
-
         return cell
     }
 
-}
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header", for: indexPath) as! FilterListHeaderView
 
-extension FilterList.ViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! FilterListHeaderView
-        switch TableSection(rawValue: section) {
+        switch TableSection(rawValue: indexPath.section) {
         case .enabled:
             header.titleLabel.text = Copy("FilterList.Table.Enabled")
         case .disabled:
             header.titleLabel.text = Copy("FilterList.Table.Disabled")
-        default: return nil
+        default: return UICollectionReusableView()
         }
+
         return header
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        .none
+}
+
+extension FilterList.ViewController: UICollectionViewDelegate {
+
+}
+
+extension FilterList.ViewController: UICollectionViewDragDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let section = TableSection(rawValue: indexPath.section)!
+        let filter: Filter
+        switch section {
+        case .enabled:
+            filter = currentConfiguration.enabledFilters[indexPath.row]
+        case .disabled:
+            filter = currentConfiguration.disabledFilters[indexPath.row]
+        }
+
+        let provider = NSItemProvider(object: String(describing: filter) as NSString)
+        let drag = UIDragItem(itemProvider: provider)
+        drag.localObject = filter
+        return [drag]
     }
 
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        false
+}
+
+extension FilterList.ViewController: UICollectionViewDropDelegate {
+    // https://github.com/Maxnelson997/DragAndDropUICollectionViewCells/blob/master/dragdropsection/ViewController.swift
+
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        if collectionView.hasActiveDrag {
+            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        return UICollectionViewDropProposal(operation: .forbidden)
     }
 
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        true
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        var destinationIndexPath: IndexPath
+
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            let row = collectionView.numberOfItems(inSection: 0)
+            destinationIndexPath = IndexPath(item: row - 1, section: 0)
+        }
+
+        if coordinator.proposal.operation == .move {
+           reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
+        }
     }
 
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        controller.reorder(a: sourceIndexPath, to: destinationIndexPath)
+    private func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView) {
+        if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
+            collectionView.performBatchUpdates({
+                self.controller.reorder(a: sourceIndexPath, to: destinationIndexPath)
+                collectionView.deleteItems(at: [sourceIndexPath])
+                collectionView.insertItems(at: [destinationIndexPath])
+            }, completion: nil)
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }
     }
 
 }

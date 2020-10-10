@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Filter {
+struct Filter: Codable {
 
     enum Rule {
         case contains(substrings: [String])
@@ -18,9 +18,78 @@ struct Filter {
         case suffix(string: String)
     }
 
+    let identifier: UUID
     let name: String
     let rule: Rule
     let isCaseSensitive: Bool
+    let isEnabled: Bool
+    let order: Int
+
+}
+
+extension Filter.Rule: Codable {
+
+    enum UnderlyingType: String, Codable {
+        case contains = "Rule.Contains"
+        case regex = "Rule.Regex"
+        case prefix = "Rule.Prefix"
+        case exact = "Rule.Exact"
+        case suffix = "Rule.Suffix"
+    }
+
+    var underlyingType: UnderlyingType {
+        switch self {
+        case .contains: return .contains
+        case .regex: return .regex
+        case .prefix: return .prefix
+        case .exact: return .exact
+        case .suffix: return .suffix
+        }
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let type = try container.decode(UnderlyingType.self, forKey: .type)
+
+        switch type {
+        case .contains:
+            let substrings = try container.decode([String].self, forKey: .valueList)
+            self = .contains(substrings: substrings)
+        case .regex:
+            let value = try container.decode(String.self, forKey: .singleValue)
+            self = .regex(expression: value)
+        case .prefix:
+            let value = try container.decode(String.self, forKey: .singleValue)
+            self = .prefix(string: value)
+        case .exact:
+            let value = try container.decode(String.self, forKey: .singleValue)
+            self = .exact(string: value)
+        case .suffix:
+            let value = try container.decode(String.self, forKey: .singleValue)
+            self = .suffix(string: value)
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(underlyingType, forKey: .type)
+        switch self {
+        case let .contains(list):
+            try container.encode(list, forKey: .valueList)
+        case let .regex(expression):
+            try container.encode(expression, forKey: .singleValue)
+        case let .prefix(string):
+            try container.encode(string, forKey: .singleValue)
+        case let .exact(string):
+            try container.encode(string, forKey: .singleValue)
+        case let .suffix(string):
+            try container.encode(string, forKey: .singleValue)
+        }
+    }
+
+    enum CodingKeys: CodingKey {
+      case type, valueList, singleValue
+    }
 
 }
 

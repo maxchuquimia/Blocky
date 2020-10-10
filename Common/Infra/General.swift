@@ -56,7 +56,7 @@ func LogError(_ items: Any..., file: String = #file) {
 }
 
 private func logPrefix(file: String) -> String {
-    "[\(filename(file: file))]"
+    " [\(filename(file: file))]"
 }
 
 private func filename(file: String) -> String {

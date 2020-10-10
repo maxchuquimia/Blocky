@@ -8,14 +8,14 @@
 
 import UIKit
 
-class FilterListHeaderView: UITableViewHeaderFooterView {
+class FilterListHeaderView: UICollectionReusableView {
 
     let titleLabel: UILabel = make {
         ViewStyle.Label.TableHeader.apply(to: $0)
     }
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
 
@@ -26,9 +26,8 @@ class FilterListHeaderView: UITableViewHeaderFooterView {
 private extension FilterListHeaderView {
 
     func setup() {
-        backgroundView = UIView()
-        backgroundView?.backgroundColor = Color.koamaru
-        contentView.addSubview(titleLabel)
+        backgroundColor = Color.koamaru
+        addSubview(titleLabel)
 
         NSLayoutConstraint.activate(
             titleLabel.constraintsFillingSuperview(insets: .init(top: 20, left: CommonMetrics.margin, bottom: 0, right: CommonMetrics.margin))

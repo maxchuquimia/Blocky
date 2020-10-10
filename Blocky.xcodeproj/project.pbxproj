@@ -27,6 +27,10 @@
 		51292F8D2531213A00825F6C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F8C2531213A00825F6C /* CardView.swift */; };
 		51292F912531255C00825F6C /* Copy.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51292F902531255C00825F6C /* Copy.strings */; };
 		51292F95253131B300825F6C /* FilterListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F94253131B300825F6C /* FilterListHeaderView.swift */; };
+		51292F9F25317A6E00825F6C /* FilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F9E25317A6E00825F6C /* FilterDataSource.swift */; };
+		51292FA025317A6E00825F6C /* FilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F9E25317A6E00825F6C /* FilterDataSource.swift */; };
+		51292FA625317B0B00825F6C /* DiskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FA525317B0B00825F6C /* DiskDataSource.swift */; };
+		51292FA725317B0B00825F6C /* DiskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FA525317B0B00825F6C /* DiskDataSource.swift */; };
 		512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329125302CD000173FCC /* NSLayoutConstraint+Extensions.swift */; };
 		512A329625302DC600173FCC /* CommonMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329525302DC600173FCC /* CommonMetrics.swift */; };
 		512A329E253030AF00173FCC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329D253030AF00173FCC /* NavigationBar.swift */; };
@@ -84,6 +88,10 @@
 		51292F8C2531213A00825F6C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		51292F902531255C00825F6C /* Copy.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Copy.strings; sourceTree = "<group>"; };
 		51292F94253131B300825F6C /* FilterListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListHeaderView.swift; sourceTree = "<group>"; };
+		51292F9E25317A6E00825F6C /* FilterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataSource.swift; sourceTree = "<group>"; };
+		51292FA525317B0B00825F6C /* DiskDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDataSource.swift; sourceTree = "<group>"; };
+		51292FAA253182E200825F6C /* Blocky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blocky.entitlements; sourceTree = "<group>"; };
+		51292FAD2531832200825F6C /* MessageFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessageFilter.entitlements; sourceTree = "<group>"; };
 		512A329125302CD000173FCC /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		512A329525302DC600173FCC /* CommonMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMetrics.swift; sourceTree = "<group>"; };
 		512A329D253030AF00173FCC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				51096732252F214500EBFF5E /* FilterList */,
+				51292F9C25317A3E00825F6C /* FilterDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -153,6 +162,7 @@
 			children = (
 				5109673D252F21D400EBFF5E /* General.swift */,
 				51096746252F222000EBFF5E /* Make.swift */,
+				51292F9D25317A5A00825F6C /* Datasources */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -211,6 +221,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		51292F9C25317A3E00825F6C /* FilterDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FilterDetail;
+			sourceTree = "<group>";
+		};
+		51292F9D25317A5A00825F6C /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				51292F9E25317A6E00825F6C /* FilterDataSource.swift */,
+				51292FA525317B0B00825F6C /* DiskDataSource.swift */,
+			);
+			path = Datasources;
+			sourceTree = "<group>";
+		};
 		512A32AD25303A3600173FCC /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +269,7 @@
 		51EC2ACC251094AC0076BBFC /* Blocky */ = {
 			isa = PBXGroup;
 			children = (
+				51292FAA253182E200825F6C /* Blocky.entitlements */,
 				51EC2ADB251094AE0076BBFC /* Info.plist */,
 				51EC2ACD251094AC0076BBFC /* AppDelegate.swift */,
 				51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */,
@@ -257,6 +284,7 @@
 		51EC2AE6251094E70076BBFC /* MessageFilter */ = {
 			isa = PBXGroup;
 			children = (
+				51292FAD2531832200825F6C /* MessageFilter.entitlements */,
 				51EC2AE7251094E70076BBFC /* MessageFilterExtension.swift */,
 				51EC2AE9251094E70076BBFC /* Info.plist */,
 			);
@@ -370,12 +398,14 @@
 			files = (
 				512A32B125303A4300173FCC /* Views.swift in Sources */,
 				5109676D252F280900EBFF5E /* ShareReplay.swift in Sources */,
+				51292F9F25317A6E00825F6C /* FilterDataSource.swift in Sources */,
 				51292F95253131B300825F6C /* FilterListHeaderView.swift in Sources */,
 				512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */,
 				51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */,
 				512A32A22530320E00173FCC /* Colors.swift in Sources */,
 				512A329E253030AF00173FCC /* NavigationBar.swift in Sources */,
 				51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */,
+				51292FA625317B0B00825F6C /* DiskDataSource.swift in Sources */,
 				5109674E252F22BE00EBFF5E /* FilterList+View.swift in Sources */,
 				51096736252F215A00EBFF5E /* FilterList+Controller.swift in Sources */,
 				51096753252F232100EBFF5E /* FilterList.swift in Sources */,
@@ -396,8 +426,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51292FA025317A6E00825F6C /* FilterDataSource.swift in Sources */,
 				51096766252F244600EBFF5E /* Filter.swift in Sources */,
 				51096748252F222000EBFF5E /* Make.swift in Sources */,
+				51292FA725317B0B00825F6C /* DiskDataSource.swift in Sources */,
 				5109673F252F21D400EBFF5E /* General.swift in Sources */,
 				51EC2AE8251094E70076BBFC /* MessageFilterExtension.swift in Sources */,
 			);
@@ -544,9 +576,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocky/Blocky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = Blocky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,9 +597,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Blocky/Blocky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = Blocky/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -580,6 +616,7 @@
 		51EC2AEE251094E70076BBFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MessageFilter/MessageFilter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = MessageFilter/Info.plist;
@@ -599,6 +636,7 @@
 		51EC2AEF251094E70076BBFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MessageFilter/MessageFilter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = MessageFilter/Info.plist;

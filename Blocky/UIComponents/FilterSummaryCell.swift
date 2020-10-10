@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterSummaryCell: UITableViewCell {
+class FilterSummaryCell: UICollectionViewCell {
 
     enum Metrics {
         static let margin: CGFloat = 8.0
@@ -27,20 +27,19 @@ class FilterSummaryCell: UITableViewCell {
         $0.spacing = Metrics.verticalSpacing
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
 
     required init?(coder: NSCoder) { die() }
 
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-
-        UIView.animate(withDuration: 0.2) {
-            self.card.transform = highlighted ? .init(scaleX: 1.05, y: 1.05) : .init(scaleX: 1.0, y: 1.0)
-        }
+    override func dragStateDidChange(_ dragState: UICollectionViewCell.DragState) {
+        super.dragStateDidChange(dragState)
+//        backgroundColor = .clear
+//        backgroundView?.backgroundColor = .clear
     }
+
 }
 
 extension FilterSummaryCell {
@@ -76,9 +75,9 @@ private extension FilterSummaryCell {
     func setup() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
-        selectionStyle = .none
+        backgroundConfiguration = .clear()
 
-        addSubview(card)
+        contentView.addSubview(card)
         card.addSubview(verticalStack)
         verticalStack.addArrangedSubview(titleLabel)
 
