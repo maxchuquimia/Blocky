@@ -1,0 +1,24 @@
+/* 
+  Copy.strings
+  Blocky
+
+  Created by Max Chuquimia on 10/10/20.
+  Copyright © 2020 Chuquimian Productions. All rights reserved.
+*/
+
+"FilterList.Title" = "Blocky";
+"FilterList.Table.Enabled" = "Enabled Filters";
+"FilterList.Table.Disabled" = "Disabled Filters";
+
+"Rule.Contains.Name" = "Contains Text";
+"Rule.Regex.Name" = "Regular Expression";
+"Rule.Prefix.Name" = "Starts with Text";
+"Rule.Suffix.Name" = "Ends with Text";
+"Rule.Exact.Name" = "Exact Match";
+"Rule.CaseSensitive.Yes" = "Yes";
+"Rule.CaseSensitive.No" = "No";
+
+"Filter.Properties.Type" = "Type";
+"Filter.Properties.Value" = "Value";
+"Filter.Properties.Value.Plural" = "Values";
+"Filter.Properties.CaseSensitive" = "Case Sensitive";
