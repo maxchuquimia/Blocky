@@ -41,6 +41,12 @@ enum ViewStyle {
                 static func apply(to label: UILabel) {
                     label.textColor = Color.cove
                     label.font = Font.cardProperty
+                    label.textAlignment = .left
+                }
+
+                static func applyBold(to label: UILabel) {
+                    label.textColor = Color.cove
+                    label.font = Font.cardPropertyBold
                 }
             }
 

@@ -14,6 +14,7 @@ enum Font {
     static let tableHeader = font(name: "OpenSans-SemiBold", style: .headline)
     static let cardTitle = font(name: "OpenSans-SemiBold", style: .title3)
     static let cardProperty = font(name: "OpenSans-SemiBold", style: .body)
+    static let cardPropertyBold = font(name: "OpenSans-Bold", style: .body)
     static let ruleDescription = font(name: "OpenSans-Regular", style: .callout)
 
 }

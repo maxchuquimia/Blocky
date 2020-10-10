@@ -20,8 +20,12 @@ class DiskDataSource {
     }
 
     let location: URL
+    let allowsCaching: Bool
 
-    init(location: URL = DiskDataSource.groupLocation) {
+    private var cache: [String: Data] = [:]
+
+    init(allowsCaching: Bool = false, location: URL = DiskDataSource.groupLocation) {
+        self.allowsCaching = allowsCaching
         self.location = location
     }
 
@@ -40,16 +44,26 @@ extension DiskDataSource: DiskDataSourceInterface {
             try data.write(to: targetFile)
         } catch {
             LogError("Could not write to", targetFile, "because", error)
+            return
+        }
+
+        if allowsCaching {
+            cache[name] = data
         }
     }
 
     func readData(named name: String) -> Data? {
+        if allowsCaching, let cachedData = cache[name] {
+            return cachedData
+        }
+
         let targetFile = location.appendingPathComponent(name)
         do {
             return try Data(contentsOf: targetFile)
         } catch {
             LogError("Could not read from", targetFile, "because", error)
         }
+
         return nil
     }
 

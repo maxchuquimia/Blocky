@@ -31,6 +31,16 @@
 		51292FA025317A6E00825F6C /* FilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F9E25317A6E00825F6C /* FilterDataSource.swift */; };
 		51292FA625317B0B00825F6C /* DiskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FA525317B0B00825F6C /* DiskDataSource.swift */; };
 		51292FA725317B0B00825F6C /* DiskDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FA525317B0B00825F6C /* DiskDataSource.swift */; };
+		51292FB325318A6400825F6C /* FilterInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FB225318A6400825F6C /* FilterInterpreter.swift */; };
+		51292FB425318A6400825F6C /* FilterInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FB225318A6400825F6C /* FilterInterpreter.swift */; };
+		51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FB92531BDED00825F6C /* AggregateFilterInterpreter.swift */; };
+		51292FBB2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FB92531BDED00825F6C /* AggregateFilterInterpreter.swift */; };
+		51292FBF2531C01000825F6C /* FilterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FBE2531C01000825F6C /* FilterDetail.swift */; };
+		51292FC32531C01A00825F6C /* FilterDetail+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FC22531C01A00825F6C /* FilterDetail+View.swift */; };
+		51292FC72531C02200825F6C /* FilterDetail+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FC62531C02200825F6C /* FilterDetail+ViewController.swift */; };
+		51292FCB2531C02800825F6C /* FilterDetail+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FCA2531C02800825F6C /* FilterDetail+Controller.swift */; };
+		51292FCF2531C6AA00825F6C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FCE2531C6AA00825F6C /* ListView.swift */; };
+		51292FD52531CB8700825F6C /* UIControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292FD42531CB8700825F6C /* UIControl+Extensions.swift */; };
 		512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329125302CD000173FCC /* NSLayoutConstraint+Extensions.swift */; };
 		512A329625302DC600173FCC /* CommonMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329525302DC600173FCC /* CommonMetrics.swift */; };
 		512A329E253030AF00173FCC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A329D253030AF00173FCC /* NavigationBar.swift */; };
@@ -92,6 +102,14 @@
 		51292FA525317B0B00825F6C /* DiskDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDataSource.swift; sourceTree = "<group>"; };
 		51292FAA253182E200825F6C /* Blocky.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blocky.entitlements; sourceTree = "<group>"; };
 		51292FAD2531832200825F6C /* MessageFilter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MessageFilter.entitlements; sourceTree = "<group>"; };
+		51292FB225318A6400825F6C /* FilterInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInterpreter.swift; sourceTree = "<group>"; };
+		51292FB92531BDED00825F6C /* AggregateFilterInterpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateFilterInterpreter.swift; sourceTree = "<group>"; };
+		51292FBE2531C01000825F6C /* FilterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDetail.swift; sourceTree = "<group>"; };
+		51292FC22531C01A00825F6C /* FilterDetail+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterDetail+View.swift"; sourceTree = "<group>"; };
+		51292FC62531C02200825F6C /* FilterDetail+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterDetail+ViewController.swift"; sourceTree = "<group>"; };
+		51292FCA2531C02800825F6C /* FilterDetail+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterDetail+Controller.swift"; sourceTree = "<group>"; };
+		51292FCE2531C6AA00825F6C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		51292FD42531CB8700825F6C /* UIControl+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extensions.swift"; sourceTree = "<group>"; };
 		512A329125302CD000173FCC /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		512A329525302DC600173FCC /* CommonMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMetrics.swift; sourceTree = "<group>"; };
 		512A329D253030AF00173FCC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -152,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				51096764252F244600EBFF5E /* Filter.swift */,
+				51292FB225318A6400825F6C /* FilterInterpreter.swift */,
+				51292FB92531BDED00825F6C /* AggregateFilterInterpreter.swift */,
 				51096761252F243500EBFF5E /* Infra */,
 			);
 			path = Common;
@@ -190,6 +210,7 @@
 				51096777252F28E100EBFF5E /* Combine+Extensions.swift */,
 				512A32BC2530602600173FCC /* Array+Extensions.swift */,
 				512A329125302CD000173FCC /* NSLayoutConstraint+Extensions.swift */,
+				51292FD42531CB8700825F6C /* UIControl+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,12 +218,13 @@
 		5109677D252F2F0D00EBFF5E /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				512A32AD25303A3600173FCC /* Styles */,
 				5109677E252F2F1F00EBFF5E /* FilterSummaryCell.swift */,
 				51292F94253131B300825F6C /* FilterListHeaderView.swift */,
 				51292F8C2531213A00825F6C /* CardView.swift */,
-				512A32AD25303A3600173FCC /* Styles */,
 				512A329525302DC600173FCC /* CommonMetrics.swift */,
 				512A329D253030AF00173FCC /* NavigationBar.swift */,
+				51292FCE2531C6AA00825F6C /* ListView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -224,6 +246,10 @@
 		51292F9C25317A3E00825F6C /* FilterDetail */ = {
 			isa = PBXGroup;
 			children = (
+				51292FBE2531C01000825F6C /* FilterDetail.swift */,
+				51292FC22531C01A00825F6C /* FilterDetail+View.swift */,
+				51292FC62531C02200825F6C /* FilterDetail+ViewController.swift */,
+				51292FCA2531C02800825F6C /* FilterDetail+Controller.swift */,
 			);
 			path = FilterDetail;
 			sourceTree = "<group>";
@@ -398,25 +424,33 @@
 			files = (
 				512A32B125303A4300173FCC /* Views.swift in Sources */,
 				5109676D252F280900EBFF5E /* ShareReplay.swift in Sources */,
+				51292FCF2531C6AA00825F6C /* ListView.swift in Sources */,
 				51292F9F25317A6E00825F6C /* FilterDataSource.swift in Sources */,
 				51292F95253131B300825F6C /* FilterListHeaderView.swift in Sources */,
 				512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */,
 				51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */,
 				512A32A22530320E00173FCC /* Colors.swift in Sources */,
+				51292FD52531CB8700825F6C /* UIControl+Extensions.swift in Sources */,
+				51292FC32531C01A00825F6C /* FilterDetail+View.swift in Sources */,
 				512A329E253030AF00173FCC /* NavigationBar.swift in Sources */,
+				51292FBF2531C01000825F6C /* FilterDetail.swift in Sources */,
 				51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */,
+				51292FB325318A6400825F6C /* FilterInterpreter.swift in Sources */,
 				51292FA625317B0B00825F6C /* DiskDataSource.swift in Sources */,
+				51292FCB2531C02800825F6C /* FilterDetail+Controller.swift in Sources */,
 				5109674E252F22BE00EBFF5E /* FilterList+View.swift in Sources */,
 				51096736252F215A00EBFF5E /* FilterList+Controller.swift in Sources */,
 				51096753252F232100EBFF5E /* FilterList.swift in Sources */,
 				512A32BD2530602600173FCC /* Array+Extensions.swift in Sources */,
 				51096798252F305700EBFF5E /* Fonts.swift in Sources */,
+				51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
 				51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */,
 				51096747252F222000EBFF5E /* Make.swift in Sources */,
 				51292F8D2531213A00825F6C /* CardView.swift in Sources */,
 				512A329625302DC600173FCC /* CommonMetrics.swift in Sources */,
 				51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */,
 				51096765252F244600EBFF5E /* Filter.swift in Sources */,
+				51292FC72531C02200825F6C /* FilterDetail+ViewController.swift in Sources */,
 				5109677F252F2F1F00EBFF5E /* FilterSummaryCell.swift in Sources */,
 				5109673E252F21D400EBFF5E /* General.swift in Sources */,
 			);
@@ -426,7 +460,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51292FBB2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
 				51292FA025317A6E00825F6C /* FilterDataSource.swift in Sources */,
+				51292FB425318A6400825F6C /* FilterInterpreter.swift in Sources */,
 				51096766252F244600EBFF5E /* Filter.swift in Sources */,
 				51096748252F222000EBFF5E /* Make.swift in Sources */,
 				51292FA725317B0B00825F6C /* DiskDataSource.swift in Sources */,

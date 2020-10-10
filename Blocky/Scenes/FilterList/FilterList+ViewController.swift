@@ -20,6 +20,7 @@ extension FilterList {
 
         private let controller: FilterListController
         private var contentView: View { view as! View }
+        private var cancellables: [AnyCancellable] = []
 
         private var currentConfiguration: FilterList.ViewState.Configuration = .init(
             enabledFilters: [],
@@ -27,7 +28,6 @@ extension FilterList {
             isEnabledInSettings: true
         )
 
-        private var cancellables: [AnyCancellable] = []
 
         init(controller: FilterListController = Controller()) {
             self.controller = controller
@@ -137,6 +137,28 @@ extension FilterList.ViewController: UICollectionViewDataSource {
 }
 
 extension FilterList.ViewController: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = TableSection(rawValue: indexPath.section)!
+        let filter: Filter
+        switch section {
+        case .enabled:
+            filter = currentConfiguration.enabledFilters[indexPath.row]
+        case .disabled:
+            filter = currentConfiguration.disabledFilters[indexPath.row]
+        }
+
+        let editor = FilterDetail.ViewController(
+            controller: FilterDetail.Controller(
+                state: .editing(filter),
+                result: { result in
+                    Log(result)
+                }
+            )
+        )
+
+        show(editor, sender: self)
+    }
 
 }
 

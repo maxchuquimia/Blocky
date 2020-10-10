@@ -95,6 +95,12 @@ extension Filter.Rule: Codable {
 
 extension Filter.Rule {
 
+    var localisedName: String { underlyingType.localisedName }
+    
+}
+
+extension Filter.Rule.UnderlyingType {
+
     var localisedName: String {
         switch self {
         case .contains: return Copy("Rule.Contains.Name")

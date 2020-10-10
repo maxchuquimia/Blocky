@@ -21,4 +21,9 @@
 "Filter.Properties.Type" = "Type";
 "Filter.Properties.Value" = "Value";
 "Filter.Properties.Value.Plural" = "Values";
-"Filter.Properties.CaseSensitive" = "Case Sensitive";
+"Filter.Properties.CaseSensitive" = "Case Sensitive"; // "Match Case"
+
+"Filter.Edit.Properties.Type" = "Filter Type";
+"Filter.Edit.Properties.Type.FirstValue" = "Filter if SMS contains…";
+"Filter.Edit.Properties.Type.SecondValue" = "…and at the same time also contains…";
+"Filter.Edit.Properties.CaseSensitive" = "Case Sensitive";

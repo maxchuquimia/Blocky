@@ -18,17 +18,21 @@ func make<T>(_ setup: ((T) -> Void) = { _ in }) -> T where T: NSObject {
 import UIKit
 
 func make<T>(_ setup: ((T) -> Void) = { _ in }) -> T where T: UIView {
-    let view = T()
-    view.translatesAutoresizingMaskIntoConstraints = false
-    setup(view)
-    return view
-}
+    let view: T
 
-func make<T>(_ setup: ((T) -> Void) = { _ in }) -> T where T: UILabel {
-    let view = T()
+    if T.self == UIButton.self {
+        view = UIButton(type: .system) as! T
+    } else {
+        view = T()
+    }
+
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.adjustsFontForContentSizeCategory = true
     setup(view)
+
+    if let label = view as? UILabel {
+        label.adjustsFontForContentSizeCategory = true
+    }
+
     return view
 }
 

@@ -11,7 +11,6 @@ import UIKit
 class FilterSummaryCell: UICollectionViewCell {
 
     enum Metrics {
-        static let margin: CGFloat = 8.0
         static let verticalSpacing: CGFloat = 4.0
         static let horizontalSpacing: CGFloat = 4.0
     }
@@ -83,7 +82,7 @@ private extension FilterSummaryCell {
 
         NSLayoutConstraint.activate(
             card.constraintsFillingSuperview(insets: .init(top: 10, left: CommonMetrics.margin, bottom: 10, right: CommonMetrics.margin)),
-            verticalStack.constraintsFillingSuperview(insets: .init(top: Metrics.margin, left: Metrics.margin, bottom: Metrics.margin, right: Metrics.margin))
+            verticalStack.constraintsFillingSuperview(insets: CommonMetrics.cardContentInset)
         )
 
     }
