@@ -660,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Blocky/Blocky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = Blocky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -683,7 +683,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Blocky/Blocky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = Blocky/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -704,7 +704,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MessageFilter/MessageFilter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = MessageFilter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -726,7 +726,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MessageFilter/MessageFilter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = AXFS8D8E46;
 				INFOPLIST_FILE = MessageFilter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
