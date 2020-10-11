@@ -24,8 +24,8 @@ struct Variable<T> {
         self.value = value
     }
 
-    func sink(_ valueReport: @escaping (T) -> Void) -> AnyCancellable {
-        valueReport(value)
+    func sink(reportImmediately: Bool = true, _ valueReport: @escaping (T) -> Void) -> AnyCancellable {
+        if reportImmediately { valueReport(value) }
         return publisher.sink(receiveValue: valueReport)
     }
 

@@ -14,4 +14,9 @@ extension Array {
         lhs.append(rhs)
     }
 
+    var second: Element? {
+        guard count >= 2 else { return nil }
+        return self[1]
+    }
+
 }

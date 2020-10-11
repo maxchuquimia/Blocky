@@ -10,6 +10,9 @@
 "FilterList.Table.Enabled" = "Enabled Filters";
 "FilterList.Table.Disabled" = "Disabled Filters";
 
+"FilterDetail.Title.New" = "Create New Filter";
+"FilterDetail.Title.Edit" = "Edit Filter";
+
 "Rule.Contains.Name" = "Contains Text";
 "Rule.Regex.Name" = "Regular Expression";
 "Rule.Prefix.Name" = "Starts with Text";
@@ -23,7 +26,18 @@
 "Filter.Properties.Value.Plural" = "Values";
 "Filter.Properties.CaseSensitive" = "Case Sensitive"; // "Match Case"
 
+"Filter.Edit.Properties.Name.Placeholder" = "Enter Filter Name";
 "Filter.Edit.Properties.Type" = "Filter Type";
-"Filter.Edit.Properties.Type.FirstValue" = "Filter if SMS contains…";
-"Filter.Edit.Properties.Type.SecondValue" = "…and at the same time also contains…";
-"Filter.Edit.Properties.CaseSensitive" = "Case Sensitive";
+"Filter.Edit.Properties.Contains.Title" = "Filter if SMS contains…";
+"Filter.Edit.Properties.Contains.Placeholder" = "Enter sub-text to check";
+"Filter.Edit.Properties.Contains.Title2" = "…and also contains…";
+"Filter.Edit.Properties.Contains.Placeholder2" = "Optionally enter second match";
+"Filter.Edit.Properties.Regex.Title" = "Filter if SMS matches…";
+"Filter.Edit.Properties.Regex.Placeholder" = "Enter RegEx to match";
+"Filter.Edit.Properties.Prefix.Title" = "Filter if SMS starts with…";
+"Filter.Edit.Properties.Prefix.Placeholder" = "Enter prefix to match";
+"Filter.Edit.Properties.Exact.Title" = "Filter if SMS is…";
+"Filter.Edit.Properties.Exact.Placeholder" = "Enter known spam SMS message";
+"Filter.Edit.Properties.Suffix.Title" = "Filter if SMS ends with…";
+"Filter.Edit.Properties.Suffix.Placeholder" = "Enter suffix to match";
+"Filter.Edit.Properties.CaseSensitive.Title" = "Case Sensitive";

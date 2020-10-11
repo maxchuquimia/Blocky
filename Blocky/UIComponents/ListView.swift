@@ -17,7 +17,7 @@ class ListView<Option: ListOption>: UIStackView {
     let options: [Option]
     private(set) var selectedOption: Variable<Option>
 
-    private var relationMap: [UIButton: UILabel] = [:]
+    private var relationMap: [(button: UIButton, label: UILabel)] = []
 
     init(options: [Option], selectedOption: Option) {
         self.options = options
@@ -30,13 +30,24 @@ class ListView<Option: ListOption>: UIStackView {
 
 }
 
+
+extension ListView {
+
+    func select(item: Option) {
+        guard let idx = options.firstIndex(where: { $0.title == item.title }) else { return }
+        let button = relationMap[idx].button
+        handlePress(from: button)
+    }
+
+}
+
 private extension ListView {
 
     func setup() {
         axis = .vertical
 
         for option in options {
-            let (view, button) = makeRow(text: option.title)
+            let (view, button) = makeAndStoreRow(text: option.title)
             addArrangedSubview(view)
 
             button.addAction(for: .touchUpInside) { [weak self, weak button] in
@@ -46,12 +57,13 @@ private extension ListView {
             }
 
             if option.title == selectedOption.value.title {
+                // Initially selected item
                 handlePress(from: button)
             }
         }
     }
 
-    func makeRow(text: String) -> (UIView, UIButton) {
+    func makeAndStoreRow(text: String) -> (UIView, UIButton) {
         let button: UIButton = make {
             $0.setTitle(text, for: .normal)
             $0.contentHorizontalAlignment = .left
@@ -74,19 +86,20 @@ private extension ListView {
             $0.addArrangedSubview(button)
         }
 
-        relationMap[button] = checkmarkLabel
+        // Store this row in the map so we can look up indexes later
+        relationMap.append((button, checkmarkLabel))
 
         return (stack, button)
     }
 
     func handlePress(from button: UIButton) {
         relationMap.forEach {
-            if $0.key === button {
-                $0.value.text = "✓"
-                ViewStyle.Label.CardProperty.Value.applyBold(to: $0.key.titleLabel!)
+            if $0.button === button {
+                $0.label.text = "✓"
+                ViewStyle.Label.CardProperty.Value.applyBold(to: $0.button.titleLabel!)
             } else {
-                $0.value.text = ""
-                ViewStyle.Label.CardProperty.Value.apply(to: $0.key.titleLabel!)
+                $0.label.text = ""
+                ViewStyle.Label.CardProperty.Value.apply(to: $0.button.titleLabel!)
             }
         }
     }

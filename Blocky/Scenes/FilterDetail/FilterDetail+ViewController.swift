@@ -30,6 +30,7 @@ extension FilterDetail {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+            bind()
         }
 
     }
@@ -44,13 +45,29 @@ private extension FilterDetail.ViewController {
                 self?.render(state: nextState)
             }
             .store(in: &cancellables)
+
+        contentView.filterTypeList.selectedOption
+            .sink(reportImmediately: false) { [weak self] type in
+                self?.contentView.load(filter: .new(with: type))
+            }
+            .store(in: &cancellables)
     }
 
     func render(state: FilterDetail.ViewState) {
         switch state {
-        case .new: break
-        case .editing(_): break
+        case .new: renderNew()
+        case let .editing(filter): render(editing: filter)
         }
+    }
+
+    func renderNew() {
+        navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.New"))
+        contentView.load(filter: .new(with: .contains))
+    }
+
+    func render(editing filter: Filter) {
+        navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.Edit"))
+        contentView.load(filter: filter)
     }
 
 }

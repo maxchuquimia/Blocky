@@ -42,7 +42,7 @@ extension FilterList {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            navigationItem.titleView = makeNavigationBarTitle("Blocky")
+            navigationItem.titleView = makeNavigationBarTitle(Copy("FilterList.Title"))
             bind()
         }
 

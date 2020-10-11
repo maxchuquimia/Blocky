@@ -27,6 +27,24 @@ struct Filter: Codable {
 
 }
 
+extension Filter {
+
+    static func new(with type: Filter.Rule.UnderlyingType) -> Filter {
+        switch type {
+        case.contains: return new(with: .contains(substrings: [""]))
+        case.regex: return new(with: .regex(expression: ""))
+        case.prefix: return new(with: .prefix(string: ""))
+        case.exact: return new(with: .exact(string: ""))
+        case.suffix: return new(with: .suffix(string: ""))
+        }
+    }
+
+    private static func new(with rule: Filter.Rule) -> Filter {
+        Filter(identifier: UUID(), name: "", rule: rule, isCaseSensitive: false, isEnabled: true, order: -1)
+    }
+
+}
+
 extension Filter.Rule: Codable {
 
     enum UnderlyingType: String, Codable {

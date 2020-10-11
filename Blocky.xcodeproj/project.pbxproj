@@ -47,6 +47,8 @@
 		512A32A22530320E00173FCC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A32A12530320E00173FCC /* Colors.swift */; };
 		512A32B125303A4300173FCC /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A32B025303A4300173FCC /* Views.swift */; };
 		512A32BD2530602600173FCC /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A32BC2530602600173FCC /* Array+Extensions.swift */; };
+		51500ADB2532762A00C50B50 /* CardTitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500ADA2532762A00C50B50 /* CardTitleTextField.swift */; };
+		51500AE42532787300C50B50 /* CardValueTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AE32532787300C50B50 /* CardValueTextView.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -116,6 +118,8 @@
 		512A32A12530320E00173FCC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		512A32B025303A4300173FCC /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		512A32BC2530602600173FCC /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		51500ADA2532762A00C50B50 /* CardTitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleTextField.swift; sourceTree = "<group>"; };
+		51500AE32532787300C50B50 /* CardValueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValueTextView.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				51292FC22531C01A00825F6C /* FilterDetail+View.swift */,
 				51292FC62531C02200825F6C /* FilterDetail+ViewController.swift */,
 				51292FCA2531C02800825F6C /* FilterDetail+Controller.swift */,
+				51500AE0253277E800C50B50 /* Components */,
 			);
 			path = FilterDetail;
 			sourceTree = "<group>";
@@ -271,6 +276,15 @@
 				512A32B025303A4300173FCC /* Views.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		51500AE0253277E800C50B50 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				51500ADA2532762A00C50B50 /* CardTitleTextField.swift */,
+				51500AE32532787300C50B50 /* CardValueTextView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		51EC2AC1251094AC0076BBFC = {
@@ -430,6 +444,7 @@
 				512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */,
 				51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */,
 				512A32A22530320E00173FCC /* Colors.swift in Sources */,
+				51500AE42532787300C50B50 /* CardValueTextView.swift in Sources */,
 				51292FD52531CB8700825F6C /* UIControl+Extensions.swift in Sources */,
 				51292FC32531C01A00825F6C /* FilterDetail+View.swift in Sources */,
 				512A329E253030AF00173FCC /* NavigationBar.swift in Sources */,
@@ -441,6 +456,7 @@
 				5109674E252F22BE00EBFF5E /* FilterList+View.swift in Sources */,
 				51096736252F215A00EBFF5E /* FilterList+Controller.swift in Sources */,
 				51096753252F232100EBFF5E /* FilterList.swift in Sources */,
+				51500ADB2532762A00C50B50 /* CardTitleTextField.swift in Sources */,
 				512A32BD2530602600173FCC /* Array+Extensions.swift in Sources */,
 				51096798252F305700EBFF5E /* Fonts.swift in Sources */,
 				51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
