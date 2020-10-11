@@ -54,6 +54,7 @@
 		51500AF42532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF82532BB9800C50B50 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF72532BB9800C50B50 /* BigButton.swift */; };
 		51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */; };
+		51500B0A2533114900C50B50 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B092533114900C50B50 /* BaseViewController.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -129,6 +130,7 @@
 		51500AF22532B76A00C50B50 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		51500AF72532BB9800C50B50 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExampleViewController.swift; sourceTree = "<group>"; };
+		51500B092533114900C50B50 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				512A329525302DC600173FCC /* CommonMetrics.swift */,
 				512A329D253030AF00173FCC /* NavigationBar.swift */,
 				51292FCE2531C6AA00825F6C /* ListView.swift */,
+				51500B092533114900C50B50 /* BaseViewController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				512A32A22530320E00173FCC /* Colors.swift in Sources */,
 				51500AE42532787300C50B50 /* CardValueTextView.swift in Sources */,
 				51292FD52531CB8700825F6C /* UIControl+Extensions.swift in Sources */,
+				51500B0A2533114900C50B50 /* BaseViewController.swift in Sources */,
 				51292FC32531C01A00825F6C /* FilterDetail+View.swift in Sources */,
 				512A329E253030AF00173FCC /* NavigationBar.swift in Sources */,
 				51292FBF2531C01000825F6C /* FilterDetail.swift in Sources */,

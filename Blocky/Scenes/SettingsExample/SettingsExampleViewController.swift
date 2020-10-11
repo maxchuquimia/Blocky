@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsExampleViewController: UIViewController {
+class SettingsExampleViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,6 @@ class SettingsExampleViewController: UIViewController {
                 """
         }
 
-        view.backgroundColor = Color.koamaru
         view.addSubview(label)
 
         NSLayoutConstraint.activate(

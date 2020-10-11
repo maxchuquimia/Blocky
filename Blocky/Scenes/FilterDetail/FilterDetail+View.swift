@@ -104,14 +104,12 @@ extension FilterDetail.View {
 private extension FilterDetail.View {
 
     func setup() {
-        backgroundColor = Color.koamaru
-
         let scrollView: UIScrollView = make {
-            $0.backgroundColor = Color.koamaru
+            $0.backgroundColor = .clear
         }
 
         let scrollViewContent: UIView = make {
-            $0.backgroundColor = Color.koamaru
+            $0.backgroundColor = .clear
         }
 
         let lowerButtonsStack: UIStackView = make {

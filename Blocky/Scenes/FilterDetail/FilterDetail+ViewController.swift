@@ -11,7 +11,7 @@ import Combine
 
 extension FilterDetail {
 
-    class ViewController: UIViewController {
+    class ViewController: BaseViewController {
 
         private let controller: FilterDetailController
         private var contentView: View { view as! View }

@@ -13,7 +13,7 @@ extension FilterList {
     class View: UIView {
 
         let collectionView: UICollectionView = make(layout: View.makeLayout()) { collectionView, _ in
-            collectionView.backgroundColor = Color.koamaru
+            collectionView.backgroundColor = UIColor.clear
             collectionView.dragInteractionEnabled = true
         }
 
@@ -88,7 +88,6 @@ private extension FilterList.View {
     }
 
     func setup() {
-        backgroundColor = Color.koamaru
         addSubview(collectionView)
         addSubview(lowerBanner)
 

@@ -11,7 +11,7 @@ import Combine
 
 extension FilterList {
 
-    class ViewController: UIViewController {
+    class ViewController: BaseViewController {
 
         private enum TableSection: Int {
             case enabled = 0

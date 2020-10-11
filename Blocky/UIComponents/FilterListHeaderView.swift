@@ -35,7 +35,7 @@ class FilterListHeaderView: UICollectionReusableView {
 private extension FilterListHeaderView {
 
     func setup() {
-        backgroundColor = Color.koamaru
+        backgroundColor = .clear
         addSubview(titleLabel)
         addSubview(button)
 
