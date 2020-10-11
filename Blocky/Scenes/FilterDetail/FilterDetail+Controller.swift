@@ -38,7 +38,11 @@ extension FilterDetail.Controller {
         var name = filter.name.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if name.isEmpty {
-            name = filter.rule.localisedName + Copy("FilterDetail.AutoName.Suffix")
+            if filter.firstRuleValue.count < filter.rule.localisedName.count {
+                name = "“" + filter.firstRuleValue + "”" + Copy("FilterDetail.AutoName.Suffix")
+            } else {
+                name = filter.rule.localisedName + Copy("FilterDetail.AutoName.Suffix")
+            }
         }
 
         // Ensure Regex is valid

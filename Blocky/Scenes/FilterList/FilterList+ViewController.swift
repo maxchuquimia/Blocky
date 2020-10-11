@@ -90,6 +90,24 @@ private extension FilterList.ViewController {
         contentView.collectionView.reloadData()
     }
 
+    func showEditor(for state: FilterDetail.ViewState) {
+        let editor = FilterDetail.ViewController(
+            controller: FilterDetail.Controller(
+                state: state,
+                result: { [weak self] result in
+                    switch result {
+                    case let .delete(filter): self?.controller.delete(filter: filter)
+                    case let .create(filter), let .overwrite(filter): self?.controller.save(filter: filter)
+                    }
+
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            )
+        )
+
+        show(editor, sender: self)
+    }
+
 }
 
 extension FilterList.ViewController: UICollectionViewDataSource {
@@ -126,8 +144,13 @@ extension FilterList.ViewController: UICollectionViewDataSource {
         switch TableSection(rawValue: indexPath.section) {
         case .enabled:
             header.titleLabel.text = Copy("FilterList.Table.Enabled")
+            header.button.isHidden = false
+            header.buttonAction = { [weak self] in
+                self?.showEditor(for: .new)
+            }
         case .disabled:
             header.titleLabel.text = Copy("FilterList.Table.Disabled")
+            header.button.isHidden = true
         default: return UICollectionReusableView()
         }
 
@@ -148,16 +171,7 @@ extension FilterList.ViewController: UICollectionViewDelegate {
             filter = currentConfiguration.disabledFilters[indexPath.row]
         }
 
-        let editor = FilterDetail.ViewController(
-            controller: FilterDetail.Controller(
-                state: .editing(filter),
-                result: { result in
-                    Log(result)
-                }
-            )
-        )
-
-        show(editor, sender: self)
+        showEditor(for: .editing(filter))
     }
 
 }

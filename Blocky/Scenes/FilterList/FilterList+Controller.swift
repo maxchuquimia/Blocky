@@ -12,6 +12,8 @@ import Combine
 protocol FilterListController {
     var viewState: Variable<FilterList.ViewState> { get }
     func reorder(a: IndexPath, to b: IndexPath)
+    func save(filter: Filter)
+    func delete(filter: Filter)
 }
 
 extension FilterList {
@@ -27,7 +29,6 @@ extension FilterList {
         init(filterDataSource: FilterDataSourceInterface = FilterDataSource()) {
             self.filterDataSource = filterDataSource
 
-            readFilters()
             presentFilters()
         }
 
@@ -83,6 +84,30 @@ extension FilterList.Controller {
         presentFilters()
     }
 
+    func save(filter: Filter) {
+        var allFilters = filterDataSource.readFilters()
+
+        // Replace existing filter if possible
+        if let idx = allFilters.firstIndex(where: { $0.identifier == filter.identifier }) {
+            allFilters[idx] = filter
+        } else {
+            allFilters.append(filter)
+        }
+
+        filterDataSource.write(filters: allFilters)
+
+        presentFilters()
+    }
+
+    func delete(filter: Filter) {
+        var allFilters = filterDataSource.readFilters()
+        allFilters.removeAll(where: { $0.identifier == filter.identifier })
+
+        filterDataSource.write(filters: allFilters)
+
+        presentFilters()
+    }
+
 }
 
 private extension FilterList.Controller {
@@ -104,6 +129,8 @@ private extension FilterList.Controller {
     }
 
     func presentFilters() {
+        readFilters()
+
         let viewConfiguration = FilterList.ViewState.Configuration(
             enabledFilters: enabledFilters,
             disabledFilters: disabledFilters,
