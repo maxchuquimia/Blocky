@@ -25,6 +25,17 @@ extension FilterDetail {
         case delete(Filter)
     }
 
+    enum ValidationError: LocalizedError {
+        case invalidRegex(message: String)
+        case emptyValue
+
+        var errorDescription: String? {
+            switch self {
+            case let .invalidRegex(message): return message
+            case .emptyValue: return Copy("FilterDetail.Error.EmptyValue")
+            }
+        }
+    }
 }
 
 extension Filter.Rule.UnderlyingType: ListOption {

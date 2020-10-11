@@ -44,6 +44,9 @@ extension FilterDetail {
 private extension FilterDetail.ViewController {
 
     func bind() {
+        contentView.saveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
+        contentView.deleteButton.addTarget(self, action: #selector(deletePressed), for: .touchUpInside)
+
         controller.viewState
             .sink { [weak self] (nextState) in
                 self?.render(state: nextState)
@@ -86,6 +89,35 @@ private extension FilterDetail.ViewController {
             isEnabled: loadedFilter?.isEnabled ?? true,
             order: loadedFilter?.order ?? -1
         )
+    }
+
+}
+
+private extension FilterDetail.ViewController {
+
+    @objc func savePressed() {
+        switch controller.validate(filter: currentFilter) {
+        case let .failure(error):
+            presentError(message: error.localizedDescription)
+        case let .success(newFilter):
+            controller.save(filter: newFilter)
+        }
+    }
+
+    @objc func deletePressed() {
+        let alert = UIAlertController(title: Copy("FilterDetail.DeleteAlert.Title"), message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: Copy("FilterDetail.DeleteAlert.Cancel"), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Copy("FilterDetail.DeleteAlert.Delete"), style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.controller.delete(filter: self.currentFilter)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+
+    func presentError(message: String) {
+        let alert = UIAlertController(title: Copy("FilterDetail.Error.GenericTitle"), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Copy("FilterDetail.Error.Okay"), style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }

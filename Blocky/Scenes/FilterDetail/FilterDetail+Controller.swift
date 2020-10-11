@@ -11,6 +11,9 @@ import Combine
 
 protocol FilterDetailController {
     var viewState: Variable<FilterDetail.ViewState> { get }
+    func validate(filter: Filter) -> Result<Filter, FilterDetail.ValidationError>
+    func save(filter: Filter)
+    func delete(filter: Filter)
 }
 
 extension FilterDetail {
@@ -30,5 +33,50 @@ extension FilterDetail {
 }
 
 extension FilterDetail.Controller {
-    
+
+    func validate(filter: Filter) -> Result<Filter, FilterDetail.ValidationError> {
+        var name = filter.name.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if name.isEmpty {
+            name = filter.rule.localisedName + Copy("FilterDetail.AutoName.Suffix")
+        }
+
+        // Ensure Regex is valid
+        if case let .regex(expr) = filter.rule {
+            do {
+                _ = try Regex(pattern: expr, isCaseSensitive: filter.isCaseSensitive)
+            } catch {
+                return .failure(.invalidRegex(message: error.localizedDescription))
+            }
+        }
+
+        // Ensure there is something to match against
+        if filter.firstRuleValue.isEmpty {
+            return .failure(.emptyValue)
+        }
+
+        return .success(Filter(
+            identifier: filter.identifier,
+            name: name,
+            rule: filter.rule,
+            isCaseSensitive: filter.isCaseSensitive,
+            isEnabled: filter.isEnabled,
+            order: filter.order
+        ))
+    }
+
+    func save(filter: Filter) {
+        guard case let .success(filter) = validate(filter: filter) else { return }
+
+        if case .new = viewState.value {
+            resultClosure(.create(filter))
+        } else {
+            resultClosure(.overwrite(filter))
+        }
+    }
+
+    func delete(filter: Filter) {
+        resultClosure(.delete(filter))
+    }
+
 }

@@ -50,7 +50,7 @@ extension Filter {
         )
     }
 
-    private var firstRuleValue: String {
+    var firstRuleValue: String {
         switch rule {
         case let .contains(substrings):
             return substrings.first ?? ""

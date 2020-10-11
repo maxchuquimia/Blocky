@@ -22,7 +22,7 @@ class DiskDataSource {
     let location: URL
     let allowsCaching: Bool
 
-    private var cache: [String: Data] = [:]
+    private static var cache: [URL: Data] = [:]
 
     init(allowsCaching: Bool = false, location: URL = DiskDataSource.groupLocation) {
         self.allowsCaching = allowsCaching
@@ -48,16 +48,17 @@ extension DiskDataSource: DiskDataSourceInterface {
         }
 
         if allowsCaching {
-            cache[name] = data
+            Self.cache[targetFile] = data
         }
     }
 
     func readData(named name: String) -> Data? {
-        if allowsCaching, let cachedData = cache[name] {
+        let targetFile = location.appendingPathComponent(name)
+
+        if allowsCaching, let cachedData = Self.cache[targetFile] {
             return cachedData
         }
 
-        let targetFile = location.appendingPathComponent(name)
         do {
             return try Data(contentsOf: targetFile)
         } catch {

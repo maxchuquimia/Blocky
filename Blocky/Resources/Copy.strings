@@ -14,6 +14,13 @@
 "FilterDetail.Title.Edit" = "Edit Filter";
 "FilterDetail.Button.Save" = "SAVE";
 "FilterDetail.Button.Delete" = "DELETE";
+"FilterDetail.AutoName.Suffix" = " Filter";
+"FilterDetail.Error.GenericTitle" = "Invalid Filter";
+"FilterDetail.Error.EmptyValue" = "Please enter a match/check value";
+"FilterDetail.Error.Okay" = "Okay";
+"FilterDetail.DeleteAlert.Title" = "Are you sure you want to delete this filter?";
+"FilterDetail.DeleteAlert.Cancel" = "Cancel";
+"FilterDetail.DeleteAlert.Delete" = "Delete";
 
 "Rule.Contains.Name" = "Contains Text";
 "Rule.Regex.Name" = "Regular Expression";

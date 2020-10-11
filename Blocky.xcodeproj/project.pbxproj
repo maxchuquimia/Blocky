@@ -245,12 +245,12 @@
 		51096784252F2FE600EBFF5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				51292F902531255C00825F6C /* Copy.strings */,
 				51096787252F300600EBFF5E /* Comfortaa-Bold.ttf */,
 				5109678B252F300600EBFF5E /* OpenSans-Bold.ttf */,
 				51500AEC25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf */,
 				51096789252F300600EBFF5E /* OpenSans-Regular.ttf */,
 				51096786252F300600EBFF5E /* OpenSans-SemiBold.ttf */,
-				51292F902531255C00825F6C /* Copy.strings */,
 				51EC2AD6251094AE0076BBFC /* Assets.xcassets */,
 				51EC2AD8251094AE0076BBFC /* LaunchScreen.storyboard */,
 			);
