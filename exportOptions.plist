@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>method</key>
+	<string>app-store</string>
+	<key>teamID</key>
+	<string>AXFS8D8E46</string>
+	<key>uploadBitcode</key>
+	<true/>
+	<key>compileBitcode</key>
+	<true/>
+	<key>uploadSymbols</key>
+	<true/>
+	<key>destination</key>
+	<string>upload</string>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.chuqumianproductions.Blocky</key>
+		<string>1b7a5d6c-b3ed-46f3-a8b2-831d720acbfc</string>
+		<key>com.chuqumianproductions.Blocky.MessageFilter</key>
+		<string>0119b702-2920-4972-8e90-6a361a4d43e3</string>
+	</dict>
+</dict>
+</plist>
