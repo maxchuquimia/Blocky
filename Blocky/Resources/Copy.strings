@@ -12,6 +12,8 @@
 
 "FilterDetail.Title.New" = "Create New Filter";
 "FilterDetail.Title.Edit" = "Edit Filter";
+"FilterDetail.Button.Save" = "SAVE";
+"FilterDetail.Button.Delete" = "DELETE";
 
 "Rule.Contains.Name" = "Contains Text";
 "Rule.Regex.Name" = "Regular Expression";
@@ -30,8 +32,8 @@
 "Filter.Edit.Properties.Type" = "Filter Type";
 "Filter.Edit.Properties.Contains.Title" = "Filter if SMS contains…";
 "Filter.Edit.Properties.Contains.Placeholder" = "Enter sub-text to check";
-"Filter.Edit.Properties.Contains.Title2" = "…and also contains…";
-"Filter.Edit.Properties.Contains.Placeholder2" = "Optionally enter second match";
+"Filter.Edit.Properties.Contains.Title2" = "…and simultaneously contains…";
+"Filter.Edit.Properties.Contains.Placeholder2" = "(optional)";
 "Filter.Edit.Properties.Regex.Title" = "Filter if SMS matches…";
 "Filter.Edit.Properties.Regex.Placeholder" = "Enter RegEx to match";
 "Filter.Edit.Properties.Prefix.Title" = "Filter if SMS starts with…";

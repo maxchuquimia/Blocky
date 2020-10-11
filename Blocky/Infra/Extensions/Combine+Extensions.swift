@@ -10,7 +10,8 @@ import Foundation
 import Combine
 
 // Not a property wrapper so that we can expose it through a protocol nicely
-struct Variable<T> {
+// Is a class because https://stackoverflow.com/questions/45415901/simultaneous-accesses-to-0x1c0a7f0f8-but-modification-requires-exclusive-access#comment92906161_46052743
+class Variable<T> {
 
     private var publisher = PassthroughSubject<T, Never>()
 

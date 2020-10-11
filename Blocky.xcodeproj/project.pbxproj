@@ -49,6 +49,10 @@
 		512A32BD2530602600173FCC /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A32BC2530602600173FCC /* Array+Extensions.swift */; };
 		51500ADB2532762A00C50B50 /* CardTitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500ADA2532762A00C50B50 /* CardTitleTextField.swift */; };
 		51500AE42532787300C50B50 /* CardValueTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AE32532787300C50B50 /* CardValueTextView.swift */; };
+		51500AED25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51500AEC25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf */; };
+		51500AF32532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
+		51500AF42532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
+		51500AF82532BB9800C50B50 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF72532BB9800C50B50 /* BigButton.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -120,6 +124,9 @@
 		512A32BC2530602600173FCC /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		51500ADA2532762A00C50B50 /* CardTitleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTitleTextField.swift; sourceTree = "<group>"; };
 		51500AE32532787300C50B50 /* CardValueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValueTextView.swift; sourceTree = "<group>"; };
+		51500AEC25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "../../../../../../../private/tmp/Open_Sans 2/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		51500AF22532B76A00C50B50 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		51500AF72532BB9800C50B50 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +183,7 @@
 				51096764252F244600EBFF5E /* Filter.swift */,
 				51292FB225318A6400825F6C /* FilterInterpreter.swift */,
 				51292FB92531BDED00825F6C /* AggregateFilterInterpreter.swift */,
+				51500AF22532B76A00C50B50 /* Regex.swift */,
 				51096761252F243500EBFF5E /* Infra */,
 			);
 			path = Common;
@@ -226,6 +234,7 @@
 				5109677E252F2F1F00EBFF5E /* FilterSummaryCell.swift */,
 				51292F94253131B300825F6C /* FilterListHeaderView.swift */,
 				51292F8C2531213A00825F6C /* CardView.swift */,
+				51500AF72532BB9800C50B50 /* BigButton.swift */,
 				512A329525302DC600173FCC /* CommonMetrics.swift */,
 				512A329D253030AF00173FCC /* NavigationBar.swift */,
 				51292FCE2531C6AA00825F6C /* ListView.swift */,
@@ -238,6 +247,7 @@
 			children = (
 				51096787252F300600EBFF5E /* Comfortaa-Bold.ttf */,
 				5109678B252F300600EBFF5E /* OpenSans-Bold.ttf */,
+				51500AEC25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf */,
 				51096789252F300600EBFF5E /* OpenSans-Regular.ttf */,
 				51096786252F300600EBFF5E /* OpenSans-SemiBold.ttf */,
 				51292F902531255C00825F6C /* Copy.strings */,
@@ -412,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51500AED25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				5109678D252F300600EBFF5E /* OpenSans-SemiBold.ttf in Resources */,
 				5109678E252F300600EBFF5E /* Comfortaa-Bold.ttf in Resources */,
 				51096790252F300600EBFF5E /* OpenSans-Regular.ttf in Resources */,
@@ -440,6 +451,7 @@
 				5109676D252F280900EBFF5E /* ShareReplay.swift in Sources */,
 				51292FCF2531C6AA00825F6C /* ListView.swift in Sources */,
 				51292F9F25317A6E00825F6C /* FilterDataSource.swift in Sources */,
+				51500AF82532BB9800C50B50 /* BigButton.swift in Sources */,
 				51292F95253131B300825F6C /* FilterListHeaderView.swift in Sources */,
 				512A329225302CD000173FCC /* NSLayoutConstraint+Extensions.swift in Sources */,
 				51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */,
@@ -459,6 +471,7 @@
 				51500ADB2532762A00C50B50 /* CardTitleTextField.swift in Sources */,
 				512A32BD2530602600173FCC /* Array+Extensions.swift in Sources */,
 				51096798252F305700EBFF5E /* Fonts.swift in Sources */,
+				51500AF32532B76A00C50B50 /* Regex.swift in Sources */,
 				51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
 				51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */,
 				51096747252F222000EBFF5E /* Make.swift in Sources */,
@@ -481,6 +494,7 @@
 				51292FB425318A6400825F6C /* FilterInterpreter.swift in Sources */,
 				51096766252F244600EBFF5E /* Filter.swift in Sources */,
 				51096748252F222000EBFF5E /* Make.swift in Sources */,
+				51500AF42532B76A00C50B50 /* Regex.swift in Sources */,
 				51292FA725317B0B00825F6C /* DiskDataSource.swift in Sources */,
 				5109673F252F21D400EBFF5E /* General.swift in Sources */,
 				51EC2AE8251094E70076BBFC /* MessageFilterExtension.swift in Sources */,

@@ -10,10 +10,12 @@ import UIKit
 
 enum Font {
 
-    static let pageTitle = font(name: "Comfortaa-Bold", style: .title1)
+    static let pageTitle = font(name: "Comfortaa-Bold", style: .title2)
     static let tableHeader = font(name: "OpenSans-SemiBold", style: .headline)
     static let cardTitle = font(name: "OpenSans-SemiBold", style: .title3)
     static let cardProperty = font(name: "OpenSans-SemiBold", style: .body)
+    static let bigButton = font(name: "OpenSans-SemiBold", style: .body)
+    static let placeholder = font(name: "OpenSans-SemiBoldItalic", style: .body)
     static let cardPropertyBold = font(name: "OpenSans-Bold", style: .body)
     static let ruleDescription = font(name: "OpenSans-Regular", style: .callout)
 

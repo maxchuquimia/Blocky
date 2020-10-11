@@ -10,6 +10,10 @@ import UIKit
 
 class CardTitleTextField: UITextField {
 
+    private let line: UIView = make {
+        $0.backgroundColor = Color.soaring
+    }
+
     init() {
         super.init(frame: .zero)
         setup()
@@ -31,9 +35,18 @@ private extension CardTitleTextField {
         attributedPlaceholder = NSAttributedString(
             string: Copy("Filter.Edit.Properties.Name.Placeholder"),
             attributes: [
-                .font: Font.cardTitle,
+                .font: Font.placeholder,
                 .foregroundColor: Color.placeholder
             ]
+        )
+
+        addSubview(line)
+
+        NSLayoutConstraint.activate(
+            line.leadingAnchor.constraint(equalTo: leadingAnchor),
+            line.trailingAnchor.constraint(equalTo: trailingAnchor),
+            line.bottomAnchor.constraint(equalTo: bottomAnchor),
+            line.heightAnchor.constraint(equalToConstant: 0.5)
         )
     }
 

@@ -17,6 +17,10 @@ extension FilterDetail {
         private var contentView: View { view as! View }
         private var cancellables: [AnyCancellable] = []
 
+        /// The filter that was initially loaded into the view.
+        /// This property can be used to restore changes - i.e. it is out of date
+        private(set) var loadedFilter: Filter?
+
         init(controller: FilterDetailController) {
             self.controller = controller
             super.init(nibName: nil, bundle: nil)
@@ -48,7 +52,7 @@ private extension FilterDetail.ViewController {
 
         contentView.filterTypeList.selectedOption
             .sink(reportImmediately: false) { [weak self] type in
-                self?.contentView.load(filter: .new(with: type))
+                self?.contentView.load(filter: .make(with: type, basedOn: self?.currentFilter))
             }
             .store(in: &cancellables)
     }
@@ -62,12 +66,26 @@ private extension FilterDetail.ViewController {
 
     func renderNew() {
         navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.New"))
-        contentView.load(filter: .new(with: .contains))
+        let filter: Filter = .make(with: .contains)
+        loadedFilter = filter
+        contentView.load(filter: filter)
     }
 
     func render(editing filter: Filter) {
         navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.Edit"))
+        loadedFilter = filter
         contentView.load(filter: filter)
+    }
+
+    var currentFilter: Filter {
+        Filter(
+            identifier: loadedFilter?.identifier ?? UUID(),
+            name: contentView.titleField.text ?? "",
+            rule: contentView.currentRule,
+            isCaseSensitive: contentView.caseSensitiveControl.selectedSegmentIndex == 0,
+            isEnabled: loadedFilter?.isEnabled ?? true,
+            order: loadedFilter?.order ?? -1
+        )
     }
 
 }

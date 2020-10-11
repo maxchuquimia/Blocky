@@ -33,7 +33,7 @@ struct FilterInterpreter {
             // If all matches are found, then this message is spam
             return matches == substrings.count
         case let .regex(expression):
-            die()
+            return (try? Regex(pattern: expression, isCaseSensitive: filter.isCaseSensitive).matches(string: suspiciousMessage)) == true
         case let .prefix(string):
             let string = filter.transform(string)
             return message.hasPrefix(string)

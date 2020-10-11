@@ -10,7 +10,7 @@ import UIKit
 
 class CardView: UIView {
 
-    private let shadowLayer = CAShapeLayer()
+    let shadowLayer = CAShapeLayer()
 
     init() {
         super.init(frame: .zero)
@@ -23,14 +23,14 @@ class CardView: UIView {
         super.layoutSubviews()
         shadowLayer.frame = bounds
         shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+        shadowLayer.fillColor = backgroundColor?.cgColor
     }
 
-    private func setup() {
+    func setup() {
         layer.cornerRadius = 5.0
         backgroundColor = Color.white
         layer.addSublayer(shadowLayer)
 
-        shadowLayer.fillColor = Color.white.cgColor
         shadowLayer.shadowColor = Color.black.cgColor
         shadowLayer.shadowOpacity = 0.5
         shadowLayer.shadowOffset = CGSize(width: 0, height: 2)

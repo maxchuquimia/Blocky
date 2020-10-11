@@ -29,18 +29,37 @@ struct Filter: Codable {
 
 extension Filter {
 
-    static func new(with type: Filter.Rule.UnderlyingType) -> Filter {
+    static func make(with type: Filter.Rule.UnderlyingType, basedOn existing: Filter? = nil) -> Filter {
         switch type {
-        case.contains: return new(with: .contains(substrings: [""]))
-        case.regex: return new(with: .regex(expression: ""))
-        case.prefix: return new(with: .prefix(string: ""))
-        case.exact: return new(with: .exact(string: ""))
-        case.suffix: return new(with: .suffix(string: ""))
+        case.contains: return make(with: .contains(substrings: [existing?.firstRuleValue ?? ""]), basedOn: existing)
+        case.regex: return make(with: .regex(expression: existing?.firstRuleValue ?? ""), basedOn: existing)
+        case.prefix: return make(with: .prefix(string: existing?.firstRuleValue ?? ""), basedOn: existing)
+        case.exact: return make(with: .exact(string: existing?.firstRuleValue ?? ""), basedOn: existing)
+        case.suffix: return make(with: .suffix(string: existing?.firstRuleValue ?? ""), basedOn: existing)
         }
     }
 
-    private static func new(with rule: Filter.Rule) -> Filter {
-        Filter(identifier: UUID(), name: "", rule: rule, isCaseSensitive: false, isEnabled: true, order: -1)
+    private static func make(with rule: Filter.Rule, basedOn existing: Filter?) -> Filter {
+        Filter(
+            identifier: existing?.identifier ?? UUID(),
+            name: existing?.name ?? "",
+            rule: rule,
+            isCaseSensitive: existing?.isCaseSensitive ?? false,
+            isEnabled: existing?.isEnabled ?? true,
+            order: existing?.order ?? -1
+        )
+    }
+
+    private var firstRuleValue: String {
+        switch rule {
+        case let .contains(substrings):
+            return substrings.first ?? ""
+        case .exact(string: let value),
+             .prefix(string: let value),
+             .suffix(string: let value),
+             .regex(expression: let value):
+            return value
+        }
     }
 
 }

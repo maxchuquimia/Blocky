@@ -26,6 +26,7 @@ private extension NavigationBar {
         setBackgroundImage(UIImage(), for: .default)
         shadowImage = UIImage()
         isTranslucent = true
+        tintColor = Color.ice
 
         let safeAreaCover: UIView = make {
             $0.backgroundColor = Color.koamaru

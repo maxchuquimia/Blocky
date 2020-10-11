@@ -23,7 +23,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Comfortaa-Bold.ttf</string>
-		<string>OpenSans-Bold.ttf</string>
+        <string>OpenSans-Bold.ttf</string>
+        <string>OpenSans-SemiBoldItalic.ttf</string>
 		<string>OpenSans-Regular.ttf</string>
 		<string>OpenSans-SemiBold.ttf</string>
 	</array>

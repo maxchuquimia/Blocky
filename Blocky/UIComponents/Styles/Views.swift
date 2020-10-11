@@ -58,6 +58,27 @@ enum ViewStyle {
                 label.textColor = Color.ice
             }
         }
+
+    }
+
+    enum Button {
+
+        enum Green {
+            static func apply(to button: BigButton) {
+                button.customTitle.font = Font.bigButton
+                button.customTitle.textColor = Color.cove
+                button.background.backgroundColor = Color.bud
+            }
+        }
+
+        enum Red {
+            static func apply(to button: BigButton) {
+                button.customTitle.font = Font.bigButton
+                button.customTitle.textColor = Color.white
+                button.background.backgroundColor = Color.carmine
+            }
+        }
+
     }
 
 }

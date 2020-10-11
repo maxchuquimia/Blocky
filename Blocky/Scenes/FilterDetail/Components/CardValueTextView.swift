@@ -18,8 +18,12 @@ class CardValueTextView: UITextView {
     }
 
     let placeholderLabel: UILabel = make {
-        $0.font = Font.cardProperty
+        $0.font = Font.placeholder
         $0.textColor = Color.placeholder
+    }
+
+    private let line: UIView = make {
+        $0.backgroundColor = Color.soaring
     }
 
     private var cancellables: [AnyCancellable] = []
@@ -31,6 +35,12 @@ class CardValueTextView: UITextView {
     }
 
     required init?(coder: NSCoder) { die() }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        line.frame = CGRect(x: 0, y: bounds.height, width: bounds.width, height: 0.5)
+    }
+
 }
 
 private extension CardValueTextView {
@@ -43,8 +53,10 @@ private extension CardValueTextView {
         font = Font.cardProperty
         textColor = Color.cove
         autocorrectionType = .no
+        clipsToBounds = false
 
         addSubview(placeholderLabel)
+        addSubview(line)
 
         NSLayoutConstraint.activate(
             placeholderLabel.topAnchor.constraint(equalTo: topAnchor),

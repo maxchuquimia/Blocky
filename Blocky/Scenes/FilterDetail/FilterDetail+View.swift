@@ -20,8 +20,22 @@ extension FilterDetail {
             $0.spacing = 10
         }
 
+        let saveButton: BigButton = make {
+            $0.customTitle.text = Copy("FilterDetail.Button.Save")
+            ViewStyle.Button.Green.apply(to: $0)
+        }
+        let deleteButton: BigButton = make {
+            $0.customTitle.text = Copy("FilterDetail.Button.Delete")
+            ViewStyle.Button.Red.apply(to: $0)
+        }
+
         let contentCard: CardView = make()
         let titleField: CardTitleTextField = make()
+        let caseSensitiveControl: UISegmentedControl = make {
+            $0.insertSegment(withTitle: Copy("Rule.CaseSensitive.Yes"), at: 0, animated: false)
+            $0.insertSegment(withTitle: Copy("Rule.CaseSensitive.No"), at: 1, animated: false)
+        }
+        private var enteredValues: [() -> String] = []
 
         let filterTypeList = ListView<Filter.Rule.UnderlyingType>(
             options: [.contains, .prefix, .exact, .suffix, .regex],
@@ -50,9 +64,21 @@ extension FilterDetail {
 
 extension FilterDetail.View {
 
+    var currentRule: Filter.Rule {
+        switch filterTypeList.selectedOption.value {
+        case .contains: return .contains(substrings: enteredValues.map({ $0() }))
+        case .regex: return .regex(expression: enteredValues[0]())
+        case .prefix: return .prefix(string: enteredValues[0]())
+        case .exact: return .exact(string: enteredValues[0]())
+        case .suffix: return .suffix(string: enteredValues[0]())
+        }
+    }
+
     func load(filter: Filter) {
         titleField.text = filter.name
         filterTypeList.select(item: filter.rule.underlyingType)
+        caseSensitiveControl.selectedSegmentIndex = filter.isCaseSensitive ? 0 : 1
+        enteredValues = []
 
         // Skip the first two views (title and filter list)
         for view in cardStack.arrangedSubviews[2...] {
@@ -68,28 +94,9 @@ extension FilterDetail.View {
              .regex(expression: let value):
             addSingleField(rule: filter.rule, value: value)
         }
-    }
 
-    func addContainsFields(strings: [String]) {
-        let value = CardValueTextView()
-        value.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder")
-        value.text = strings.first ?? ""
-        let section1 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title"), content: value)
-        cardStack.addArrangedSubview(section1)
-
-        let value2 = CardValueTextView()
-        value2.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder2")
-        value2.text = strings.second ?? ""
-        let section2 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title2"), content: value2)
-        cardStack.addArrangedSubview(section2)
-    }
-
-    func addSingleField(rule: Filter.Rule, value: String) {
-        let valueView = CardValueTextView()
-        valueView.placeholderLabel.text = rule.valueFieldPlaceholder
-        valueView.text = value
-        let section = makeCardSection(title: rule.valueFieldTitle, content: valueView)
-        cardStack.addArrangedSubview(section)
+        let caseSection = makeCardSection(title: Copy("Filter.Edit.Properties.CaseSensitive.Title"), content: caseSensitiveControl)
+        cardStack.addArrangedSubview(caseSection)
     }
 
 }
@@ -97,6 +104,8 @@ extension FilterDetail.View {
 private extension FilterDetail.View {
 
     func setup() {
+        backgroundColor = Color.koamaru
+
         let scrollView: UIScrollView = make {
             $0.backgroundColor = Color.koamaru
         }
@@ -105,6 +114,15 @@ private extension FilterDetail.View {
             $0.backgroundColor = Color.koamaru
         }
 
+        let lowerButtonsStack: UIStackView = make {
+            $0.axis = .horizontal
+            $0.distribution = .fillEqually
+            $0.spacing = 22
+            $0.addArrangedSubview(saveButton)
+            $0.addArrangedSubview(deleteButton)
+        }
+
+        addSubview(lowerButtonsStack)
         addSubview(scrollView)
         scrollView.addSubview(scrollViewContent)
         scrollViewContent.addSubview(scrollingStack)
@@ -116,14 +134,21 @@ private extension FilterDetail.View {
         )
 
         NSLayoutConstraint.activate(
-            scrollView.constraintsFillingSuperview(),
             scrollViewContent.constraintsFillingSuperview(),
             scrollingStack.constraintsFillingSuperview(insets: UIEdgeInsets(top: 0, left: CommonMetrics.margin, bottom: 0, right: CommonMetrics.margin)),
             cardStack.constraintsFillingSuperview(insets: CommonMetrics.cardContentInset)
         )
 
         NSLayoutConstraint.activate(
-            scrollViewContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollViewContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            lowerButtonsStack.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            lowerButtonsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CommonMetrics.margin),
+            lowerButtonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CommonMetrics.margin),
+            lowerButtonsStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         )
     }
 
@@ -148,6 +173,32 @@ private extension FilterDetail.View {
         result.addArrangedSubview(content)
 
         return result
+    }
+
+    func addContainsFields(strings: [String]) {
+        let value = CardValueTextView()
+        value.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder")
+        value.text = strings.first ?? ""
+        let section1 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title"), content: value)
+        cardStack.addArrangedSubview(section1)
+
+        let value2 = CardValueTextView()
+        value2.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder2")
+        value2.text = strings.second ?? ""
+        let section2 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title2"), content: value2)
+        cardStack.addArrangedSubview(section2)
+
+        enteredValues.append({ [weak value] in value?.text ?? "" })
+        enteredValues.append({ [weak value2] in value2?.text ?? "" })
+    }
+
+    func addSingleField(rule: Filter.Rule, value: String) {
+        let valueView = CardValueTextView()
+        valueView.placeholderLabel.text = rule.valueFieldPlaceholder
+        valueView.text = value
+        enteredValues.append({ [weak valueView] in valueView?.text ?? "" })
+        let section = makeCardSection(title: rule.valueFieldTitle, content: valueView)
+        cardStack.addArrangedSubview(section)
     }
 
 }

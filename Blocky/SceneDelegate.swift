@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationStack
         window.makeKeyAndVisible()
+        window.tintColor = Color.koamaru
         self.window = window
     }
 
