@@ -59,6 +59,14 @@ enum ViewStyle {
             }
         }
 
+        enum Banner {
+            static func apply(to label: UILabel) {
+                label.font = Font.banner
+                label.textColor = Color.cove
+                label.numberOfLines = 2
+            }
+        }
+
     }
 
     enum Button {

@@ -53,6 +53,7 @@
 		51500AF32532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF42532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF82532BB9800C50B50 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF72532BB9800C50B50 /* BigButton.swift */; };
+		51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -127,6 +128,7 @@
 		51500AEC25328E2D00C50B50 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "../../../../../../../private/tmp/Open_Sans 2/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		51500AF22532B76A00C50B50 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		51500AF72532BB9800C50B50 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExampleViewController.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				51096732252F214500EBFF5E /* FilterList */,
 				51292F9C25317A3E00825F6C /* FilterDetail */,
+				51500B0225330A7900C50B50 /* SettingsExample */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -295,6 +298,14 @@
 				51500AE32532787300C50B50 /* CardValueTextView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		51500B0225330A7900C50B50 /* SettingsExample */ = {
+			isa = PBXGroup;
+			children = (
+				51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */,
+			);
+			path = SettingsExample;
 			sourceTree = "<group>";
 		};
 		51EC2AC1251094AC0076BBFC = {
@@ -473,6 +484,7 @@
 				51096798252F305700EBFF5E /* Fonts.swift in Sources */,
 				51500AF32532B76A00C50B50 /* Regex.swift in Sources */,
 				51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
+				51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */,
 				51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */,
 				51096747252F222000EBFF5E /* Make.swift in Sources */,
 				51292F8D2531213A00825F6C /* CardView.swift in Sources */,

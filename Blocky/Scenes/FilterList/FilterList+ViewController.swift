@@ -71,6 +71,9 @@ private extension FilterList.ViewController {
             }
             .store(in: &cancellables)
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(bannerTapped))
+        contentView.lowerBanner.addGestureRecognizer(tap)
+
         contentView.collectionView.delegate = self
         contentView.collectionView.dataSource = self
         contentView.collectionView.dragDelegate = self
@@ -106,6 +109,10 @@ private extension FilterList.ViewController {
         )
 
         show(editor, sender: self)
+    }
+
+    @objc func bannerTapped() {
+        show(SettingsExampleViewController(), sender: self)
     }
 
 }
