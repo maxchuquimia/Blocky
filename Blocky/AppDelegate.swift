@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !UserDefaults.standard.bool(forKey: "didWriteExampleFilters") && filterDataSource.readFilters().isEmpty {
             UserDefaults.standard.setValue(true, forKey: "didWriteExampleFilters")
             let examples = [
-                Filter(identifier: UUID(), name: "“STOP” Filter", rule: .suffix(string: "STOP"), isCaseSensitive: true, isEnabled: true, order: 0),
-                Filter(identifier: UUID(), name: ".xyz URL Filter", rule: .regex(expression: "(http:|https:).*\\.xyz"), isCaseSensitive: false, isEnabled: true, order: 1),
-                Filter(identifier: UUID(), name: "“Final Notice” Filter", rule: .contains(substrings: ["Final Notice", "overdue"]), isCaseSensitive: false, isEnabled: false, order: 0),
+                Filter(identifier: UUID(), name: "“STOP” Filter", rule: .suffix(string: "STOP"), isCaseSensitive: true, order: 0),
+                Filter(identifier: UUID(), name: ".xyz URL Filter", rule: .regex(expression: "(http:|https:).*\\.xyz"), isCaseSensitive: false, order: 1),
+                Filter(identifier: UUID(), name: "“Final Notice” Filter", rule: .contains(substrings: ["Final Notice", "overdue"]), isCaseSensitive: false, order: 0),
             ]
 
             filterDataSource.write(filters: examples)

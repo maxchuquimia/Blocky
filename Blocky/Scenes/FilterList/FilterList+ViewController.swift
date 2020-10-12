@@ -13,9 +13,8 @@ extension FilterList {
 
     class ViewController: BaseViewController {
 
-        private enum TableSection: Int {
+        private enum TableSection: Int, CaseIterable {
             case enabled = 0
-            case disabled = 1
         }
 
         private let controller: FilterListController
@@ -23,9 +22,8 @@ extension FilterList {
         private var cancellables: [AnyCancellable] = []
 
         private var currentConfiguration: FilterList.ViewState.Configuration = .init(
-            enabledFilters: [],
-            disabledFilters: [],
-            isEnabledInSettings: true
+            allFilters: [],
+            isEnabledInSettings: false
         )
 
 
@@ -76,8 +74,6 @@ private extension FilterList.ViewController {
 
         contentView.collectionView.delegate = self
         contentView.collectionView.dataSource = self
-        contentView.collectionView.dragDelegate = self
-        contentView.collectionView.dropDelegate = self
         contentView.collectionView.register(FilterSummaryCell.self, forCellWithReuseIdentifier: "cell")
         contentView.collectionView.register(FilterListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
     }
@@ -120,13 +116,12 @@ private extension FilterList.ViewController {
 extension FilterList.ViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        TableSection.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch TableSection(rawValue: section) {
-        case .enabled: return currentConfiguration.enabledFilters.count
-        case .disabled: return currentConfiguration.disabledFilters.count
+        case .enabled: return currentConfiguration.allFilters.count
         default: die()
         }
     }
@@ -137,9 +132,7 @@ extension FilterList.ViewController: UICollectionViewDataSource {
 
         switch section {
         case .enabled:
-            cell.load(filter: currentConfiguration.enabledFilters[indexPath.row], isEnabled: true)
-        case .disabled:
-            cell.load(filter: currentConfiguration.disabledFilters[indexPath.row], isEnabled: false)
+            cell.load(filter: currentConfiguration.allFilters[indexPath.row], isEnabled: true)
         }
 
         return cell
@@ -155,9 +148,6 @@ extension FilterList.ViewController: UICollectionViewDataSource {
             header.buttonAction = { [weak self] in
                 self?.showEditor(for: .new)
             }
-        case .disabled:
-            header.titleLabel.text = Copy("FilterList.Table.Disabled")
-            header.button.isHidden = true
         default: return UICollectionReusableView()
         }
 
@@ -173,70 +163,10 @@ extension FilterList.ViewController: UICollectionViewDelegate {
         let filter: Filter
         switch section {
         case .enabled:
-            filter = currentConfiguration.enabledFilters[indexPath.row]
-        case .disabled:
-            filter = currentConfiguration.disabledFilters[indexPath.row]
+            filter = currentConfiguration.allFilters[indexPath.row]
         }
 
         showEditor(for: .editing(filter))
-    }
-
-}
-
-extension FilterList.ViewController: UICollectionViewDragDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let section = TableSection(rawValue: indexPath.section)!
-        let filter: Filter
-        switch section {
-        case .enabled:
-            filter = currentConfiguration.enabledFilters[indexPath.row]
-        case .disabled:
-            filter = currentConfiguration.disabledFilters[indexPath.row]
-        }
-
-        let provider = NSItemProvider(object: String(describing: filter) as NSString)
-        let drag = UIDragItem(itemProvider: provider)
-        drag.localObject = filter
-        return [drag]
-    }
-
-}
-
-extension FilterList.ViewController: UICollectionViewDropDelegate {
-    // https://github.com/Maxnelson997/DragAndDropUICollectionViewCells/blob/master/dragdropsection/ViewController.swift
-
-    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
-        if collectionView.hasActiveDrag {
-            return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
-        }
-        return UICollectionViewDropProposal(operation: .forbidden)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
-        var destinationIndexPath: IndexPath
-
-        if let indexPath = coordinator.destinationIndexPath {
-            destinationIndexPath = indexPath
-        } else {
-            let row = collectionView.numberOfItems(inSection: 0)
-            destinationIndexPath = IndexPath(item: row - 1, section: 0)
-        }
-
-        if coordinator.proposal.operation == .move {
-           reorderItems(coordinator: coordinator, destinationIndexPath: destinationIndexPath, collectionView: collectionView)
-        }
-    }
-
-    private func reorderItems(coordinator: UICollectionViewDropCoordinator, destinationIndexPath:IndexPath, collectionView: UICollectionView) {
-        if let item = coordinator.items.first, let sourceIndexPath = item.sourceIndexPath {
-            collectionView.performBatchUpdates({
-                self.controller.reorder(a: sourceIndexPath, to: destinationIndexPath)
-                collectionView.deleteItems(at: [sourceIndexPath])
-                collectionView.insertItems(at: [destinationIndexPath])
-            }, completion: nil)
-            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
-        }
     }
 
 }

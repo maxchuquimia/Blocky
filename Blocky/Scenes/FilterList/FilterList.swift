@@ -17,14 +17,13 @@ extension FilterList {
     enum ViewState {
 
         struct Configuration {
-            let enabledFilters: [Filter]
-            let disabledFilters: [Filter]
+            let allFilters: [Filter]
             let isEnabledInSettings: Bool
         }
 
         case loaded(Configuration)
 
-        static let initial: ViewState = .loaded(Configuration(enabledFilters: [], disabledFilters: [], isEnabledInSettings: true))
+        static let initial: ViewState = .loaded(Configuration(allFilters: [], isEnabledInSettings: true))
     }
 
 }

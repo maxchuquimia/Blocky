@@ -64,7 +64,6 @@ extension FilterDetail.Controller {
             name: name,
             rule: filter.rule,
             isCaseSensitive: filter.isCaseSensitive,
-            isEnabled: filter.isEnabled,
             order: filter.order
         ))
     }

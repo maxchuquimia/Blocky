@@ -22,7 +22,6 @@ struct Filter: Codable {
     let name: String
     let rule: Rule
     let isCaseSensitive: Bool
-    let isEnabled: Bool
     let order: Int
 
 }
@@ -45,7 +44,6 @@ extension Filter {
             name: existing?.name ?? "",
             rule: rule,
             isCaseSensitive: existing?.isCaseSensitive ?? false,
-            isEnabled: existing?.isEnabled ?? true,
             order: existing?.order ?? -1
         )
     }

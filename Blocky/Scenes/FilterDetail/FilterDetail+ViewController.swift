@@ -86,7 +86,6 @@ private extension FilterDetail.ViewController {
             name: contentView.titleField.text ?? "",
             rule: contentView.currentRule,
             isCaseSensitive: contentView.caseSensitiveControl.selectedSegmentIndex == 0,
-            isEnabled: loadedFilter?.isEnabled ?? true,
             order: loadedFilter?.order ?? -1
         )
     }

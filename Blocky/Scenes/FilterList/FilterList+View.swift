@@ -14,7 +14,6 @@ extension FilterList {
 
         let collectionView: UICollectionView = make(layout: View.makeLayout()) { collectionView, _ in
             collectionView.backgroundColor = UIColor.clear
-            collectionView.dragInteractionEnabled = true
         }
 
         let lowerBanner: UIView = make {

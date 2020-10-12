@@ -7,8 +7,7 @@
 */
 
 "FilterList.Title" = "Blocky";
-"FilterList.Table.Enabled" = "Enabled Filters";
-"FilterList.Table.Disabled" = "Disabled Filters";
+"FilterList.Table.Enabled" = "All Filters";
 "FilterList.Banner.Message" = "Find out how to enable Blocky\nas your SMS filtering app";
 
 "FilterDetail.Title.New" = "Create New Filter";

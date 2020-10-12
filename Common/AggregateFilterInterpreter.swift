@@ -14,8 +14,6 @@ class AggregateFilterInterpreter {
 
     func isSpam(message: String) -> Bool {
         let filters = dataSource.readFilters()
-            .filter(\.isEnabled)
-            .sorted(by: { $0.order < $1.order })
 
         guard !filters.isEmpty else { return false }
 
