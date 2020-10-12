@@ -14,6 +14,7 @@
 "FilterDetail.Title.Edit" = "Edit Filter";
 "FilterDetail.Button.Save" = "SAVE";
 "FilterDetail.Button.Delete" = "DELETE";
+"FilterDetail.Button.Test" = "TEST THIS FILTER";
 "FilterDetail.AutoName.Suffix" = " Filter";
 "FilterDetail.Error.GenericTitle" = "Invalid Filter";
 "FilterDetail.Error.EmptyValue" = "Please enter a match/check value";

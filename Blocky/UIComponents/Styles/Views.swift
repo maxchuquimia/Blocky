@@ -87,6 +87,14 @@ enum ViewStyle {
             }
         }
 
+        enum Blue {
+            static func apply(to button: BigButton) {
+                button.customTitle.font = Font.bigButton
+                button.customTitle.textColor = Color.cove
+                button.background.backgroundColor = Color.soaring
+            }
+        }
+
     }
 
 }

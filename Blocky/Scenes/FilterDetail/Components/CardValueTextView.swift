@@ -54,7 +54,8 @@ private extension CardValueTextView {
         textColor = Color.cove
         autocorrectionType = .no
         clipsToBounds = false
-
+        translatesAutoresizingMaskIntoConstraints = false
+        setContentHuggingPriority(.required, for: .vertical)
         addSubview(placeholderLabel)
         addSubview(line)
 

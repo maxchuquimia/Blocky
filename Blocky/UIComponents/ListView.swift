@@ -45,6 +45,9 @@ private extension ListView {
 
     func setup() {
         axis = .vertical
+        distribution = .fillEqually
+        alignment = .leading
+        spacing = 0
 
         for option in options {
             let (view, button) = makeAndStoreRow(text: option.title)
@@ -67,8 +70,8 @@ private extension ListView {
         let button: UIButton = make {
             $0.setTitle(text, for: .normal)
             $0.contentHorizontalAlignment = .left
-            $0.contentEdgeInsets = UIEdgeInsets(top: 0.01, left: 0.01, bottom: 0.01, right: 0.01)
-            $0.titleEdgeInsets = UIEdgeInsets(top: 0.01, left: 0.01, bottom: 0.01, right: 0.01)
+            $0.contentEdgeInsets = UIEdgeInsets(top: 1, left: 0.01, bottom: 1, right: 0.01)
+            $0.titleEdgeInsets = UIEdgeInsets(top: 1, left: 0.01, bottom: 1, right: 0.01)
             $0.tintColor = Color.koamaru
             if let label = $0.titleLabel {
                 ViewStyle.Label.CardProperty.Value.apply(to: label)

@@ -16,10 +16,14 @@ extension FilterDetail {
         let scrollingStack: UIStackView = make {
             $0.axis = .vertical
             $0.alignment = .fill
-            $0.distribution = .fillProportionally
+            $0.distribution = .fill
             $0.spacing = 10
         }
 
+        let testButton: BigButton = make {
+            $0.customTitle.text = Copy("FilterDetail.Button.Test")
+            ViewStyle.Button.Blue.apply(to: $0)
+        }
         let saveButton: BigButton = make {
             $0.customTitle.text = Copy("FilterDetail.Button.Save")
             ViewStyle.Button.Green.apply(to: $0)
@@ -34,6 +38,7 @@ extension FilterDetail {
         let caseSensitiveControl: UISegmentedControl = make {
             $0.insertSegment(withTitle: Copy("Rule.CaseSensitive.Yes"), at: 0, animated: false)
             $0.insertSegment(withTitle: Copy("Rule.CaseSensitive.No"), at: 1, animated: false)
+            $0.setContentHuggingPriority(.required, for: .vertical)
         }
         private var enteredValues: [() -> String] = []
 
@@ -104,8 +109,10 @@ extension FilterDetail.View {
 private extension FilterDetail.View {
 
     func setup() {
+
         let scrollView: UIScrollView = make {
             $0.backgroundColor = .clear
+            $0.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
         }
 
         let scrollViewContent: UIView = make {
@@ -125,6 +132,7 @@ private extension FilterDetail.View {
         scrollView.addSubview(scrollViewContent)
         scrollViewContent.addSubview(scrollingStack)
         scrollingStack.addArrangedSubview(contentCard)
+        scrollingStack.addArrangedSubview(testButton)
         contentCard.addSubview(cardStack)
         cardStack.addArrangedSubview(titleField)
         cardStack.addArrangedSubview(
@@ -138,6 +146,11 @@ private extension FilterDetail.View {
         )
 
         NSLayoutConstraint.activate(
+            scrollingStack.topAnchor.constraint(equalTo: scrollViewContent.topAnchor),
+            scrollingStack.leadingAnchor.constraint(equalTo: scrollViewContent.leadingAnchor, constant: CommonMetrics.margin),
+            scrollingStack.trailingAnchor.constraint(equalTo: scrollViewContent.trailingAnchor, constant: -CommonMetrics.margin),
+            scrollingStack.bottomAnchor.constraint(lessThanOrEqualTo: scrollViewContent.bottomAnchor),
+
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -163,6 +176,7 @@ private extension FilterDetail.View {
 
         let titleLabel: UILabel = make {
             $0.text = title
+            $0.setContentHuggingPriority(.required, for: .vertical)
             ViewStyle.Label.CardProperty.Title.apply(to: $0)
             $0.textAlignment = .left
         }
