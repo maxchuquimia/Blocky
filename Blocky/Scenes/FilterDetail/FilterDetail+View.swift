@@ -13,6 +13,15 @@ extension FilterDetail {
 
     class View: UIView {
 
+        private enum Metrics {
+            static let defaultScrollviewInset: UIEdgeInsets = .init(top: 20, left: 0, bottom: 0, right: 0)
+        }
+
+        let scrollView: UIScrollView = make {
+            $0.backgroundColor = .clear
+            $0.contentInset = Metrics.defaultScrollviewInset
+        }
+
         let scrollingStack: UIStackView = make {
             $0.axis = .vertical
             $0.alignment = .fill
@@ -47,6 +56,10 @@ extension FilterDetail {
             selectedOption: .contains
         )
 
+        let testZoneCard: TestZoneView = make {
+            $0.isHidden = true
+        }
+
         let cardStack: UIStackView = make {
             $0.axis = .vertical
             $0.spacing = 18.0
@@ -54,6 +67,8 @@ extension FilterDetail {
         }
 
         private var cancellables: [AnyCancellable] = []
+
+        var ruleValueChanged: () -> () = { }
 
         init() {
             super.init(frame: .zero)
@@ -104,16 +119,16 @@ extension FilterDetail.View {
         cardStack.addArrangedSubview(caseSection)
     }
 
+    func displayTestZone() {
+        testZoneCard.isHidden = false
+        testButton.isHidden = true
+    }
+
 }
 
 private extension FilterDetail.View {
 
     func setup() {
-
-        let scrollView: UIScrollView = make {
-            $0.backgroundColor = .clear
-            $0.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
-        }
 
         let scrollViewContent: UIView = make {
             $0.backgroundColor = .clear
@@ -133,6 +148,7 @@ private extension FilterDetail.View {
         scrollViewContent.addSubview(scrollingStack)
         scrollingStack.addArrangedSubview(contentCard)
         scrollingStack.addArrangedSubview(testButton)
+        scrollingStack.addArrangedSubview(testZoneCard)
         contentCard.addSubview(cardStack)
         cardStack.addArrangedSubview(titleField)
         cardStack.addArrangedSubview(
@@ -166,6 +182,28 @@ private extension FilterDetail.View {
     func bind() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
         addGestureRecognizer(tap)
+
+        filterTypeList.selectedOption
+            .sink(reportImmediately: false) { [weak self] _ in
+                self?.ruleValueChanged()
+            }
+            .store(in: &cancellables)
+
+        caseSensitiveControl.addAction(UIAction { [weak self] _ in self?.ruleValueChanged() }, for: .valueChanged)
+
+        NotificationCenter.default
+            .publisher(for: UIResponder.keyboardWillShowNotification)
+            .sink { [weak self] (notification) in
+                self?.handleKeyboardAppeared(notification: notification)
+            }
+            .store(in: &cancellables)
+
+        NotificationCenter.default
+            .publisher(for: UIResponder.keyboardWillHideNotification)
+            .sink { [weak self] (notification) in
+                self?.handleKeyboardDisappeared(notification: notification)
+            }
+            .store(in: &cancellables)
     }
 
     func makeCardSection(title: String, content: UIView) -> UIStackView {
@@ -188,13 +226,13 @@ private extension FilterDetail.View {
     }
 
     func addContainsFields(strings: [String]) {
-        let value = CardValueTextView()
+        let value = makeCardValueTextView()
         value.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder")
         value.text = strings.first ?? ""
         let section1 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title"), content: value)
         cardStack.addArrangedSubview(section1)
 
-        let value2 = CardValueTextView()
+        let value2 = makeCardValueTextView()
         value2.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder2")
         value2.text = strings.second ?? ""
         let section2 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title2"), content: value2)
@@ -205,12 +243,35 @@ private extension FilterDetail.View {
     }
 
     func addSingleField(rule: Filter.Rule, value: String) {
-        let valueView = CardValueTextView()
+        let valueView = makeCardValueTextView()
         valueView.placeholderLabel.text = rule.valueFieldPlaceholder
         valueView.text = value
         enteredValues.append({ [weak valueView] in valueView?.text ?? "" })
         let section = makeCardSection(title: rule.valueFieldTitle, content: valueView)
         cardStack.addArrangedSubview(section)
+    }
+
+    func makeCardValueTextView() -> CardValueTextView {
+        make {
+            ViewStyle.Field.CardValue.apply(to: $0)
+            $0.textChangedCallback = { [weak self] _ in
+                self?.ruleValueChanged()
+            }
+        }
+    }
+
+    func handleKeyboardAppeared(notification: Notification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: Metrics.defaultScrollviewInset.top, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+
+    func handleKeyboardDisappeared(notification: Notification) {
+        scrollView.contentInset = Metrics.defaultScrollviewInset
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 
 }

@@ -59,6 +59,14 @@ private extension FilterDetail.ViewController {
                 self?.contentView.load(filter: .make(with: type, basedOn: self?.currentFilter))
             }
             .store(in: &cancellables)
+
+        contentView.ruleValueChanged = { [weak self] in
+            self?.runTestIfNeeded()
+        }
+
+        contentView.testZoneCard.textField.textChangedCallback = { [weak self] _ in
+            self?.runTestIfNeeded()
+        }
     }
 
     func render(state: FilterDetail.ViewState) {
@@ -91,6 +99,22 @@ private extension FilterDetail.ViewController {
         )
     }
 
+    func runTestIfNeeded() {
+        guard !contentView.testZoneCard.isHidden else { return }
+        guard !contentView.testZoneCard.textField.text.isEmpty else {
+            contentView.testZoneCard.state = .unknown
+            contentView.testZoneCard.statusMessage.text = ""
+            return
+        }
+        let isSpam = controller.test(filter: currentFilter, against: contentView.testZoneCard.textField.text)
+        contentView.testZoneCard.state = isSpam ? .spam : .notSpam
+        if isSpam {
+            contentView.testZoneCard.statusMessage.text = Copy("FilterDetail.TestZone.Match")
+        } else {
+            contentView.testZoneCard.statusMessage.text = Copy("FilterDetail.TestZone.NoMatch")
+        }
+    }
+
 }
 
 private extension FilterDetail.ViewController {
@@ -99,8 +123,8 @@ private extension FilterDetail.ViewController {
         switch controller.validate(filter: currentFilter) {
         case let .failure(error):
             presentError(message: error.localizedDescription)
-        case let .success(newFilter):
-            print(newFilter)
+        case .success:
+            contentView.displayTestZone()
         }
     }
 

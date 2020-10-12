@@ -55,6 +55,7 @@
 		51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */; };
 		51500B0A2533114900C50B50 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B092533114900C50B50 /* BaseViewController.swift */; };
 		5177802E253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */; };
+		517780342534591D005E8E7B /* TestZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517780332534591D005E8E7B /* TestZoneView.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -131,6 +132,7 @@
 		51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExampleViewController.swift; sourceTree = "<group>"; };
 		51500B092533114900C50B50 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "../../../../../../../private/tmp/Open_Sans/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		517780332534591D005E8E7B /* TestZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestZoneView.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			children = (
 				51500ADA2532762A00C50B50 /* CardTitleTextField.swift */,
 				51500AE32532787300C50B50 /* CardValueTextView.swift */,
+				517780332534591D005E8E7B /* TestZoneView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				51096765252F244600EBFF5E /* Filter.swift in Sources */,
 				51292FC72531C02200825F6C /* FilterDetail+ViewController.swift in Sources */,
 				5109677F252F2F1F00EBFF5E /* FilterSummaryCell.swift in Sources */,
+				517780342534591D005E8E7B /* TestZoneView.swift in Sources */,
 				5109673E252F21D400EBFF5E /* General.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,13 @@ enum ViewStyle {
             }
         }
 
+        enum Footnote {
+            static func apply(to label: UILabel) {
+                label.textColor = Color.black
+                label.font = Font.footnote
+            }
+        }
+
         enum CardProperty {
 
             enum Title {
@@ -95,6 +102,29 @@ enum ViewStyle {
             }
         }
 
+    }
+
+    enum Field {
+
+        enum CardValue {
+            static func apply(to field: CardValueTextView) {
+                field.placeholderLabel.font = Font.placeholder
+                field.placeholderLabel.textColor = Color.placeholder
+                field.font = Font.cardProperty
+                field.textColor = Color.cove
+            }
+        }
+
+        enum TestZone {
+            static func apply(to field: CardValueTextView) {
+                field.placeholderLabel.font = Font.placeholder
+                field.placeholderLabel.textColor = Color.placeholder
+                field.font = Font.cardProperty
+                field.textColor = Color.cove
+                field.line.backgroundColor = Color.cove
+                field.backgroundColor = .clear
+            }
+        }
     }
 
 }

@@ -13,6 +13,7 @@ enum Font {
     static let pageTitle = font(name: "Comfortaa-Bold", style: .title2)
     static let tableHeader = font(name: "OpenSans-SemiBold", style: .headline)
     static let cardTitle = font(name: "OpenSans-SemiBold", style: .title3)
+    static let footnote = font(name: "OpenSans-SemiBold", style: .footnote)
     static let cardProperty = font(name: "OpenSans-SemiBold", style: .body)
     static let bigButton = font(name: "OpenSans-SemiBold", style: .body)
     static let placeholder = font(name: "OpenSans-SemiBoldItalic", style: .body)

@@ -12,6 +12,10 @@ class CardView: UIView {
 
     let shadowLayer = CAShapeLayer()
 
+    override var backgroundColor: UIColor? {
+        didSet { setNeedsLayout() }
+    }
+
     init() {
         super.init(frame: .zero)
         setup()

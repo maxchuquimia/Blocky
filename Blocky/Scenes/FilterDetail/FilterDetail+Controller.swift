@@ -14,6 +14,7 @@ protocol FilterDetailController {
     func validate(filter: Filter) -> Result<Filter, FilterDetail.ValidationError>
     func save(filter: Filter)
     func delete(filter: Filter)
+    func test(filter: Filter, against sms: String) -> Bool
 }
 
 extension FilterDetail {
@@ -80,6 +81,11 @@ extension FilterDetail.Controller {
 
     func delete(filter: Filter) {
         resultClosure(.delete(filter))
+    }
+
+    /// Returns `true` if `sms` is spam
+    func test(filter: Filter, against sms: String) -> Bool {
+        FilterInterpreter(suspiciousMessage: sms).isSpam(accordingTo: filter)
     }
 
 }

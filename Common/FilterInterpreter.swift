@@ -24,6 +24,7 @@ struct FilterInterpreter {
 
         switch filter.rule {
         case let .contains(substrings):
+            let substrings = substrings.filter({ !$0.isEmpty })
             var matches = 0
             for substring in substrings {
                 if message.contains(filter.transform(substring)) {

@@ -22,6 +22,10 @@
 "FilterDetail.DeleteAlert.Title" = "Are you sure you want to delete this filter?";
 "FilterDetail.DeleteAlert.Cancel" = "Cancel";
 "FilterDetail.DeleteAlert.Delete" = "Delete";
+"FilterDetail.TestZone.Title" = "Test Zone";
+"FilterDetail.TestZone.Placeholder" = "Paste (or type) an SMS here";
+"FilterDetail.TestZone.Match" = "This message would be filtered!";
+"FilterDetail.TestZone.NoMatch" = "This message would not be filtered.";
 
 "Rule.Contains.Name" = "Contains Text";
 "Rule.Regex.Name" = "Regular Expression";

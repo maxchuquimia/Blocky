@@ -18,13 +18,14 @@ class CardValueTextView: UITextView {
     }
 
     let placeholderLabel: UILabel = make {
-        $0.font = Font.placeholder
-        $0.textColor = Color.placeholder
+        $0.numberOfLines = 0
     }
 
-    private let line: UIView = make {
+    let line: UIView = make {
         $0.backgroundColor = Color.soaring
     }
+
+    var textChangedCallback: (String) -> () = { _ in }
 
     private var cancellables: [AnyCancellable] = []
 
@@ -50,9 +51,8 @@ private extension CardValueTextView {
         contentInset = .zero
         textContainerInset = .zero
         textContainer.lineFragmentPadding = 0
-        font = Font.cardProperty
-        textColor = Color.cove
         autocorrectionType = .no
+        autocapitalizationType = .none
         clipsToBounds = false
         translatesAutoresizingMaskIntoConstraints = false
         setContentHuggingPriority(.required, for: .vertical)
@@ -72,6 +72,7 @@ private extension CardValueTextView {
         NotificationCenter.default.publisher(for: UITextView.textDidChangeNotification, object: self)
             .sink { [weak self] _ in
                 self?.updatePlaceholderDisplay()
+                self?.textChangedCallback(self?.text ?? "")
             }
             .store(in: &cancellables)
     }
