@@ -34,6 +34,14 @@ class PagingView: UIView {
         $0.setContentHuggingPriority(.required, for: .vertical)
     }
 
+    var keepsScrollViewAbovePageControl: Bool {
+        false
+    }
+
+    var bleed: CGFloat {
+        0
+    }
+
     required init(pages: [UIView]) {
         super.init(frame: .zero)
         setup(pages: pages)
@@ -74,9 +82,8 @@ private extension PagingView {
             closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
 
             scrollView.topAnchor.constraint(equalTo: closeButton.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -bleed),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: bleed),
 
             pageControl.leadingAnchor.constraint(equalTo: leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -88,6 +95,12 @@ private extension PagingView {
             pageStack.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             pageStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: CGFloat(pages.count))
         )
+
+        if keepsScrollViewAbovePageControl {
+            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 40).isActive = true
+        } else {
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
 
         updateButtonDisplay()
     }

@@ -34,6 +34,13 @@ enum ViewStyle {
             }
         }
 
+        enum RuleDescription {
+            static func apply(to label: UILabel) {
+                label.textColor = Color.grey
+                label.font = Font.ruleDescription
+            }
+        }
+
         enum CardProperty {
 
             enum Title {

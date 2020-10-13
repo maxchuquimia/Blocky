@@ -131,12 +131,17 @@ private extension FilterDetail.View {
             $0.addArrangedSubview(deleteButton)
         }
 
+        let helpDeck = FilterHelpDeck()
+
         addSubview(lowerButtonsStack)
         addSubview(scrollView)
         scrollView.addSubview(scrollViewContent)
         scrollViewContent.addSubview(scrollingStack)
         scrollingStack.addArrangedSubview(contentCard)
         scrollingStack.addArrangedSubview(testZoneCard)
+        scrollingStack.setCustomSpacing(20, after: testZoneCard)
+        scrollingStack.addArrangedSubview(helpDeck)
+        scrollingStack.setCustomSpacing(30, after: helpDeck)
         contentCard.addSubview(cardStack)
         cardStack.addArrangedSubview(titleField)
         cardStack.addArrangedSubview(

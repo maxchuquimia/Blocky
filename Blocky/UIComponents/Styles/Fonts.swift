@@ -19,7 +19,7 @@ enum Font {
     static let placeholder = font(name: "OpenSans-SemiBoldItalic", style: .body)
     static let cardPropertyBold = font(name: "OpenSans-Bold", style: .body)
     static let banner = font(name: "OpenSans-Regular", style: .body)
-    static let ruleDescription = font(name: "OpenSans-Regular", style: .callout)
+    static let ruleDescription = font(name: "OpenSans-Regular", style: .caption2)
 
 }
 

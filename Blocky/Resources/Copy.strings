@@ -65,3 +65,7 @@
 "Filter.Edit.Properties.Suffix.Title" = "Filter if SMS ends with…";
 "Filter.Edit.Properties.Suffix.Placeholder" = "Enter suffix to match";
 "Filter.Edit.Properties.CaseSensitive.Title" = "Case Sensitive";
+
+"Filter.Help.Contains" = "These three messages are not exactly the same but they do contain some distinct similarities.\n\nWhen using a Contains Text filter, identify at least one of these similarities so as to match multiple spam messages.";
+"Filter.Help.Prefix" = "";
+"Filter.Help.Regex" = "";
