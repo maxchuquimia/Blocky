@@ -33,12 +33,6 @@ class FilterSummaryCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) { die() }
 
-    override func dragStateDidChange(_ dragState: UICollectionViewCell.DragState) {
-        super.dragStateDidChange(dragState)
-//        backgroundColor = .clear
-//        backgroundView?.backgroundColor = .clear
-    }
-
 }
 
 extension FilterSummaryCell {
@@ -122,7 +116,7 @@ private extension FilterSummaryCell {
     func titleView(_ name: String) -> UILabel {
         make {
             $0.text = name
-            $0.widthAnchor.constraint(equalToConstant: 130).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: 120).isActive = true
             ViewStyle.Label.CardProperty.Title.apply(to: $0)
         }
     }

@@ -50,6 +50,15 @@ extension FilterList {
             contentView.layoutIfNeeded()
         }
 
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            if !UserDefaults.standard.bool(forKey: "didShowOnboarding") {
+                UserDefaults.standard.setValue(true, forKey: "didShowOnboarding")
+                let vc = OnboardingViewController()
+                present(vc, animated: true, completion: nil)
+            }
+        }
+
         override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
             super.viewWillTransition(to: size, with: coordinator)
             coordinator.animate(alongsideTransition: { context in
@@ -108,7 +117,8 @@ private extension FilterList.ViewController {
     }
 
     @objc func bannerTapped() {
-        show(SettingsExampleViewController(), sender: self)
+        let vc = OnboardingViewController()
+        present(vc, animated: true, completion: { [weak vc] in vc?.scrollToLastPage() })
     }
 
 }

@@ -6,6 +6,16 @@
   Copyright © 2020 Chuquimian Productions. All rights reserved.
 */
 
+"Onboarding.Page1.Title" = "100% Offline & Private";
+"Onboarding.Page1.Content" = "Blocky is proud to protect your privacy. We never send any data to our servers - we don't even have analytics in this app.\n\nIn fact, we are Open Source for your peace of mind!\n";
+"Onboarding.Page1.Button" = "VIEW IN SAFARI";
+"Onboarding.Page2.Title" = "Spam, Spam, Spam.";
+"Onboarding.Page2.Content" = "Have you noticed how similar spam messages can be?\n\nBlocky provides an easy way to create Filters that your device can then interpret when deciding which messages to ignore.";
+"Onboarding.Page3.Title" = "Blocky Filters";
+"Onboarding.Page3.Content" = "For example, here is a Filter that will stop all SMS containing the phrase “Click Here”.\n\nNote: Filters are only applied to numbers not in your contacts.";
+"Onboarding.Page4.Title" = "Enable Filtering";
+"Onboarding.Page4.Content" = "Before Blocky can start filtering spam you'll need to set your SMS filter for this device:\n\n1. Open “Settings”\n2. Tap “Messages”\n3. Tap “Unknown & Spam”\n4. Select “Blocky”";
+
 "FilterList.Title" = "Blocky";
 "FilterList.Table.Enabled" = "All Filters";
 "FilterList.Banner.Message" = "Find out how to enable Blocky\nas your SMS filtering app";

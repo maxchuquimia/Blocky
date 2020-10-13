@@ -74,6 +74,14 @@ enum ViewStyle {
             }
         }
 
+        enum OnboardingContent {
+            static func apply(to label: UILabel) {
+                label.font = Font.banner
+                label.textColor = Color.white
+                label.numberOfLines = 0
+            }
+        }
+
     }
 
     enum Button {

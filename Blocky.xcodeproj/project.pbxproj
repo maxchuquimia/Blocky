@@ -16,7 +16,6 @@
 		51096753252F232100EBFF5E /* FilterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096752252F232100EBFF5E /* FilterList.swift */; };
 		51096765252F244600EBFF5E /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096764252F244600EBFF5E /* Filter.swift */; };
 		51096766252F244600EBFF5E /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096764252F244600EBFF5E /* Filter.swift */; };
-		5109676D252F280900EBFF5E /* ShareReplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109676C252F280900EBFF5E /* ShareReplay.swift */; };
 		51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096777252F28E100EBFF5E /* Combine+Extensions.swift */; };
 		5109677F252F2F1F00EBFF5E /* FilterSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109677E252F2F1F00EBFF5E /* FilterSummaryCell.swift */; };
 		5109678D252F300600EBFF5E /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51096786252F300600EBFF5E /* OpenSans-SemiBold.ttf */; };
@@ -24,6 +23,9 @@
 		51096790252F300600EBFF5E /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51096789252F300600EBFF5E /* OpenSans-Regular.ttf */; };
 		51096792252F300600EBFF5E /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5109678B252F300600EBFF5E /* OpenSans-Bold.ttf */; };
 		51096798252F305700EBFF5E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096797252F305700EBFF5E /* Fonts.swift */; };
+		5128BB91253506770083D7A5 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128BB90253506770083D7A5 /* PagingView.swift */; };
+		5128BB96253570D90083D7A5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128BB95253570D90083D7A5 /* OnboardingViewController.swift */; };
+		5128BB9C2535715D0083D7A5 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5128BB9B2535715D0083D7A5 /* OnboardingPage.swift */; };
 		51292F8D2531213A00825F6C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F8C2531213A00825F6C /* CardView.swift */; };
 		51292F912531255C00825F6C /* Copy.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51292F902531255C00825F6C /* Copy.strings */; };
 		51292F95253131B300825F6C /* FilterListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51292F94253131B300825F6C /* FilterListHeaderView.swift */; };
@@ -52,7 +54,6 @@
 		51500AF32532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF42532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF82532BB9800C50B50 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF72532BB9800C50B50 /* BigButton.swift */; };
-		51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */; };
 		51500B0A2533114900C50B50 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B092533114900C50B50 /* BaseViewController.swift */; };
 		5177802E253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */; };
 		517780342534591D005E8E7B /* TestZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517780332534591D005E8E7B /* TestZoneView.swift */; };
@@ -96,7 +97,6 @@
 		5109674D252F22BE00EBFF5E /* FilterList+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterList+View.swift"; sourceTree = "<group>"; };
 		51096752252F232100EBFF5E /* FilterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterList.swift; sourceTree = "<group>"; };
 		51096764252F244600EBFF5E /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		5109676C252F280900EBFF5E /* ShareReplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareReplay.swift; sourceTree = "<group>"; };
 		51096777252F28E100EBFF5E /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 		5109677E252F2F1F00EBFF5E /* FilterSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSummaryCell.swift; sourceTree = "<group>"; };
 		51096786252F300600EBFF5E /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -104,6 +104,9 @@
 		51096789252F300600EBFF5E /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		5109678B252F300600EBFF5E /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		51096797252F305700EBFF5E /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		5128BB90253506770083D7A5 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
+		5128BB95253570D90083D7A5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		5128BB9B2535715D0083D7A5 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		51292F8C2531213A00825F6C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		51292F902531255C00825F6C /* Copy.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Copy.strings; sourceTree = "<group>"; };
 		51292F94253131B300825F6C /* FilterListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterListHeaderView.swift; sourceTree = "<group>"; };
@@ -129,7 +132,6 @@
 		51500AE32532787300C50B50 /* CardValueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValueTextView.swift; sourceTree = "<group>"; };
 		51500AF22532B76A00C50B50 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		51500AF72532BB9800C50B50 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
-		51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExampleViewController.swift; sourceTree = "<group>"; };
 		51500B092533114900C50B50 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		517780332534591D005E8E7B /* TestZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestZoneView.swift; sourceTree = "<group>"; };
@@ -166,9 +168,9 @@
 		5109672F252F11B200EBFF5E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5128BB94253570CC0083D7A5 /* Onboarding */,
 				51096732252F214500EBFF5E /* FilterList */,
 				51292F9C25317A3E00825F6C /* FilterDetail */,
-				51500B0225330A7900C50B50 /* SettingsExample */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -206,19 +208,10 @@
 			path = Infra;
 			sourceTree = "<group>";
 		};
-		5109676B252F27FC00EBFF5E /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				5109676C252F280900EBFF5E /* ShareReplay.swift */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
 		51096773252F28B400EBFF5E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
 				51096776252F28C700EBFF5E /* Extensions */,
-				5109676B252F27FC00EBFF5E /* ThirdParty */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -246,6 +239,7 @@
 				512A329D253030AF00173FCC /* NavigationBar.swift */,
 				51292FCE2531C6AA00825F6C /* ListView.swift */,
 				51500B092533114900C50B50 /* BaseViewController.swift */,
+				5128BB90253506770083D7A5 /* PagingView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -263,6 +257,15 @@
 				51EC2AD8251094AE0076BBFC /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5128BB94253570CC0083D7A5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5128BB95253570D90083D7A5 /* OnboardingViewController.swift */,
+				5128BB9B2535715D0083D7A5 /* OnboardingPage.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		51292F9C25317A3E00825F6C /* FilterDetail */ = {
@@ -304,14 +307,6 @@
 				517780332534591D005E8E7B /* TestZoneView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		51500B0225330A7900C50B50 /* SettingsExample */ = {
-			isa = PBXGroup;
-			children = (
-				51500B0325330A9A00C50B50 /* SettingsExampleViewController.swift */,
-			);
-			path = SettingsExample;
 			sourceTree = "<group>";
 		};
 		51EC2AC1251094AC0076BBFC = {
@@ -465,7 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				512A32B125303A4300173FCC /* Views.swift in Sources */,
-				5109676D252F280900EBFF5E /* ShareReplay.swift in Sources */,
 				51292FCF2531C6AA00825F6C /* ListView.swift in Sources */,
 				51292F9F25317A6E00825F6C /* FilterDataSource.swift in Sources */,
 				51500AF82532BB9800C50B50 /* BigButton.swift in Sources */,
@@ -491,10 +485,12 @@
 				51096798252F305700EBFF5E /* Fonts.swift in Sources */,
 				51500AF32532B76A00C50B50 /* Regex.swift in Sources */,
 				51292FBA2531BDED00825F6C /* AggregateFilterInterpreter.swift in Sources */,
-				51500B0425330A9A00C50B50 /* SettingsExampleViewController.swift in Sources */,
+				5128BB96253570D90083D7A5 /* OnboardingViewController.swift in Sources */,
 				51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */,
 				51096747252F222000EBFF5E /* Make.swift in Sources */,
+				5128BB91253506770083D7A5 /* PagingView.swift in Sources */,
 				51292F8D2531213A00825F6C /* CardView.swift in Sources */,
+				5128BB9C2535715D0083D7A5 /* OnboardingPage.swift in Sources */,
 				512A329625302DC600173FCC /* CommonMetrics.swift in Sources */,
 				51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */,
 				51096765252F244600EBFF5E /* Filter.swift in Sources */,
@@ -678,7 +674,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chuqumianproductions.Blocky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -701,7 +697,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chuqumianproductions.Blocky;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
