@@ -36,6 +36,7 @@ extension ListView {
     func select(item: Option) {
         guard let idx = options.firstIndex(where: { $0.title == item.title }) else { return }
         let button = relationMap[idx].button
+        selectedOption.value = item
         handlePress(from: button)
     }
 

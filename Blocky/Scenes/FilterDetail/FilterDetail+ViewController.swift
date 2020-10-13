@@ -44,7 +44,6 @@ extension FilterDetail {
 private extension FilterDetail.ViewController {
 
     func bind() {
-        contentView.testButton.addTarget(self, action: #selector(testPressed), for: .touchUpInside)
         contentView.saveButton.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         contentView.deleteButton.addTarget(self, action: #selector(deletePressed), for: .touchUpInside)
 
@@ -100,7 +99,6 @@ private extension FilterDetail.ViewController {
     }
 
     func runTestIfNeeded() {
-        guard !contentView.testZoneCard.isHidden else { return }
         guard !contentView.testZoneCard.textField.text.isEmpty else {
             contentView.testZoneCard.state = .unknown
             contentView.testZoneCard.statusMessage.text = ""
@@ -118,15 +116,6 @@ private extension FilterDetail.ViewController {
 }
 
 private extension FilterDetail.ViewController {
-
-    @objc func testPressed() {
-        switch controller.validate(filter: currentFilter) {
-        case let .failure(error):
-            presentError(message: error.localizedDescription)
-        case .success:
-            contentView.displayTestZone()
-        }
-    }
 
     @objc func savePressed() {
         switch controller.validate(filter: currentFilter) {

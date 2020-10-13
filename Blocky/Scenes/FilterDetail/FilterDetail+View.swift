@@ -29,10 +29,6 @@ extension FilterDetail {
             $0.spacing = 10
         }
 
-        let testButton: BigButton = make {
-            $0.customTitle.text = Copy("FilterDetail.Button.Test")
-            ViewStyle.Button.Blue.apply(to: $0)
-        }
         let saveButton: BigButton = make {
             $0.customTitle.text = Copy("FilterDetail.Button.Save")
             ViewStyle.Button.Green.apply(to: $0)
@@ -56,9 +52,7 @@ extension FilterDetail {
             selectedOption: .contains
         )
 
-        let testZoneCard: TestZoneView = make {
-            $0.isHidden = true
-        }
+        let testZoneCard: TestZoneView = make()
 
         let cardStack: UIStackView = make {
             $0.axis = .vertical
@@ -119,11 +113,6 @@ extension FilterDetail.View {
         cardStack.addArrangedSubview(caseSection)
     }
 
-    func displayTestZone() {
-        testZoneCard.isHidden = false
-        testButton.isHidden = true
-    }
-
 }
 
 private extension FilterDetail.View {
@@ -147,7 +136,6 @@ private extension FilterDetail.View {
         scrollView.addSubview(scrollViewContent)
         scrollViewContent.addSubview(scrollingStack)
         scrollingStack.addArrangedSubview(contentCard)
-        scrollingStack.addArrangedSubview(testButton)
         scrollingStack.addArrangedSubview(testZoneCard)
         contentCard.addSubview(cardStack)
         cardStack.addArrangedSubview(titleField)

@@ -25,6 +25,7 @@ struct FilterInterpreter {
         switch filter.rule {
         case let .contains(substrings):
             let substrings = substrings.filter({ !$0.isEmpty })
+            guard !substrings.isEmpty else { return false }
             var matches = 0
             for substring in substrings {
                 if message.contains(filter.transform(substring)) {
@@ -34,14 +35,18 @@ struct FilterInterpreter {
             // If all matches are found, then this message is spam
             return matches == substrings.count
         case let .regex(expression):
+            guard !expression.isEmpty else { return false }
             return (try? Regex(pattern: expression, isCaseSensitive: filter.isCaseSensitive).matches(string: suspiciousMessage)) == true
         case let .prefix(string):
+            guard !string.isEmpty else { return false }
             let string = filter.transform(string)
             return message.hasPrefix(string)
         case let .exact(string):
+            guard !string.isEmpty else { return false }
             let string = filter.transform(string)
             return message == string
         case let .suffix(string):
+            guard !string.isEmpty else { return false }
             let string = filter.transform(string)
             return message.hasSuffix(string)
         }
