@@ -66,6 +66,8 @@ private extension FilterDetail.ViewController {
         contentView.testZoneCard.textField.textChangedCallback = { [weak self] _ in
             self?.runTestIfNeeded()
         }
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backPressed))
     }
 
     func render(state: FilterDetail.ViewState) {
@@ -132,6 +134,21 @@ private extension FilterDetail.ViewController {
         alert.addAction(UIAlertAction(title: Copy("FilterDetail.DeleteAlert.Delete"), style: .destructive, handler: { [weak self] _ in
             guard let self = self else { return }
             self.controller.delete(filter: self.currentFilter)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+
+    @objc func backPressed() {
+        guard loadedFilter != currentFilter else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+
+        let alert = UIAlertController(title: Copy("FilterDetail.BackAlert.Title"), message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: Copy("FilterDetail.BackAlert.Cancel"), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: Copy("FilterDetail.BackAlert.Discard"), style: .destructive, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.navigationController?.popViewController(animated: true)
         }))
         present(alert, animated: true, completion: nil)
     }

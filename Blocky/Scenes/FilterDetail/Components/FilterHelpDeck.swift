@@ -13,7 +13,8 @@ class FilterHelpDeck: PagingView {
     required init() {
         super.init(pages: [
             HelpCard(title: Filter.Rule.UnderlyingType.contains.localisedName, text: Copy("Filter.Help.Contains"), image: UIImage(named: "example-contains")!),
-            HelpCard(title: Filter.Rule.UnderlyingType.prefix.localisedName, text: Copy("Filter.Help.Prefix"), image: UIImage(named: "example-startswith")!),
+            HelpCard(title: Copy("Filter.Help.PrefixSuffix.Title"), text: Copy("Filter.Help.PrefixSuffix"), image: UIImage(named: "example-startswith")!),
+            HelpCard(title: Filter.Rule.UnderlyingType.exact.localisedName, text: Copy("Filter.Help.ExactMatch"), image: UIImage(named: "example-exact")!),
             HelpCard(title: Filter.Rule.UnderlyingType.regex.localisedName, text: Copy("Filter.Help.Regex"), image: UIImage(named: "example-regex")!),
         ])
         setup()
@@ -23,9 +24,23 @@ class FilterHelpDeck: PagingView {
     required init(pages: [UIView]) { die() }
 
     func setup() {
-        closeButton.isHidden = true
+        closeButton.setImage(nil, for: .normal)
         nextPageButton.isHidden = true
+        pageControl.currentPageIndicatorTintColor = nil
+        pageControl.pageIndicatorTintColor = nil
+
+        let helpDeckTitle: UILabel = make {
+            $0.text = Copy("Filter.Help.Title")
+            ViewStyle.Label.TableHeader.apply(to: $0)
+        }
+
+        addSubview(helpDeckTitle)
+
         NSLayoutConstraint.activate(
+            helpDeckTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
+            helpDeckTitle.trailingAnchor.constraint(equalTo: trailingAnchor),
+            helpDeckTitle.bottomAnchor.constraint(equalTo: scrollView.topAnchor, constant: -2),
+            closeButton.heightAnchor.constraint(equalToConstant: 0),
             heightAnchor.constraint(equalToConstant: 250)
         )
     }
@@ -48,6 +63,7 @@ private class HelpCard: UIView {
         let title: UILabel = make {
             $0.text = title
             $0.setContentCompressionResistancePriority(.required, for: .vertical)
+            $0.setContentHuggingPriority(.required, for: .vertical)
             ViewStyle.Label.CardHeader.apply(to: $0)
         }
 
@@ -60,7 +76,7 @@ private class HelpCard: UIView {
         let imageView: UIImageView = make {
             $0.image = image
             $0.contentMode = .scaleAspectFit
-            $0.widthAnchor.constraint(equalToConstant: 115).isActive = true
+            $0.widthAnchor.constraint(equalToConstant: 150).isActive = true
         }
 
         let hstack: UIStackView = make {

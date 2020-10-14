@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Filter: Codable {
+struct Filter: Codable, Equatable {
 
-    enum Rule {
+    enum Rule: Equatable {
         case contains(substrings: [String])
         case regex(expression: String)
         case prefix(string: String)
@@ -64,7 +64,7 @@ extension Filter {
 
 extension Filter.Rule: Codable {
 
-    enum UnderlyingType: String, Codable {
+    enum UnderlyingType: String, Codable, Equatable {
         case contains = "Rule.Contains"
         case regex = "Rule.Regex"
         case prefix = "Rule.Prefix"

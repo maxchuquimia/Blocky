@@ -14,9 +14,9 @@ enum FilterList {
 
 extension FilterList {
 
-    enum ViewState {
+    enum ViewState: Equatable {
 
-        struct Configuration {
+        struct Configuration: Equatable {
             let allFilters: [Filter]
             let isEnabledInSettings: Bool
         }
@@ -24,6 +24,12 @@ extension FilterList {
         case loaded(Configuration)
 
         static let initial: ViewState = .loaded(Configuration(allFilters: [], isEnabledInSettings: true))
+
+        static func == (lhs: FilterList.ViewState, rhs: FilterList.ViewState) -> Bool {
+            switch (lhs, rhs) {
+            case (let .loaded(a), let .loaded(b)): return a == b
+            }
+        }
     }
 
 }

@@ -7,7 +7,7 @@
 */
 
 "Onboarding.Page1.Title" = "100% Offline & Private";
-"Onboarding.Page1.Content" = "Blocky is proud to protect your privacy. We never send any data to our servers - we don't even have analytics in this app.\n\nIn fact, we are Open Source for your peace of mind!\n";
+"Onboarding.Page1.Content" = "Blocky is proud to protect your privacy. We never send any data to our servers - we don't even have analytics in this app.\n\nIn fact, we are Open Source for your peace of mind!\n\nCome and say hello on GitHub anytime!";
 "Onboarding.Page1.Button" = "VIEW IN SAFARI";
 "Onboarding.Page2.Title" = "Spam, Spam, Spam.";
 "Onboarding.Page2.Content" = "Have you noticed how similar spam messages can be?\n\nBlocky provides an easy way to create Filters that your device can then interpret when deciding which messages to ignore.";
@@ -32,6 +32,9 @@
 "FilterDetail.DeleteAlert.Title" = "Are you sure you want to delete this filter?";
 "FilterDetail.DeleteAlert.Cancel" = "Cancel";
 "FilterDetail.DeleteAlert.Delete" = "Delete";
+"FilterDetail.BackAlert.Title" = "This filter has unsaved changes!";
+"FilterDetail.BackAlert.Cancel" = "Continue Editing";
+"FilterDetail.BackAlert.Discard" = "Discard Changes";
 "FilterDetail.TestZone.Title" = "Test Zone";
 "FilterDetail.TestZone.Placeholder" = "Paste (or type) an SMS here";
 "FilterDetail.TestZone.Match" = "This message would be filtered!";
@@ -66,6 +69,9 @@
 "Filter.Edit.Properties.Suffix.Placeholder" = "Enter suffix to match";
 "Filter.Edit.Properties.CaseSensitive.Title" = "Case Sensitive";
 
-"Filter.Help.Contains" = "These three messages are not exactly the same but they do contain some distinct similarities.\n\nWhen using a Contains Text filter, identify at least one of these similarities so as to match multiple spam messages.";
-"Filter.Help.Prefix" = "";
-"Filter.Help.Regex" = "";
+"Filter.Help.Title" = "Filter Hints";
+"Filter.Help.Contains" = "These messages are the same in a couple of places. When using a Contains Text filter, identify at least one of these similarities so as to match multiple spam messages.";
+"Filter.Help.PrefixSuffix.Title" = "Starts/Ends with Text";
+"Filter.Help.PrefixSuffix" = "These two filter types are helpful when you want to target messages that either start or end with a particular phrase.";
+"Filter.Help.Regex" = "RegEx is an advanced pattern matching technique. For example: the expression “https.*xyz” will match all the text from “https” to “xyz”.";
+"Filter.Help.ExactMatch" = "Getting the same message over and over again? An Exact Match filter can help.";

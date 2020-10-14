@@ -87,10 +87,11 @@ private extension FilterSummaryCell {
 
         switch rule {
         case let .contains(substrings):
+            let substrings = substrings.filter({ !$0.isEmpty })
             if substrings.count > 1 {
                 title = Copy("Filter.Properties.Value.Plural")
             }
-           value = substrings.joined(separator: " & ")
+            value = substrings.joined(separator: " & ")
         case let .exact(string):
             value = string
         case let .prefix(string):

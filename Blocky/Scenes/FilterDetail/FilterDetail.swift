@@ -14,7 +14,7 @@ enum FilterDetail {
 
 extension FilterDetail {
 
-    enum ViewState {
+    enum ViewState: Equatable {
         case new
         case editing(Filter)
     }

@@ -14,7 +14,7 @@ extension FilterDetail {
     class View: UIView {
 
         private enum Metrics {
-            static let defaultScrollviewInset: UIEdgeInsets = .init(top: 20, left: 0, bottom: 0, right: 0)
+            static let defaultScrollviewInset: UIEdgeInsets = .init(top: 20, left: 0, bottom: 5, right: 0)
         }
 
         let scrollView: UIScrollView = make {
@@ -139,9 +139,8 @@ private extension FilterDetail.View {
         scrollViewContent.addSubview(scrollingStack)
         scrollingStack.addArrangedSubview(contentCard)
         scrollingStack.addArrangedSubview(testZoneCard)
-        scrollingStack.setCustomSpacing(20, after: testZoneCard)
+        scrollingStack.setCustomSpacing(25, after: testZoneCard)
         scrollingStack.addArrangedSubview(helpDeck)
-        scrollingStack.setCustomSpacing(30, after: helpDeck)
         contentCard.addSubview(cardStack)
         cardStack.addArrangedSubview(titleField)
         cardStack.addArrangedSubview(
@@ -165,7 +164,7 @@ private extension FilterDetail.View {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollViewContent.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            lowerButtonsStack.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            lowerButtonsStack.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20),
             lowerButtonsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CommonMetrics.margin),
             lowerButtonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CommonMetrics.margin),
             lowerButtonsStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)

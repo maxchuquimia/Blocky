@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ListOption {
+protocol ListOption: Equatable {
     var title: String { get }
 }
 

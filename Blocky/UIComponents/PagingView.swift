@@ -97,7 +97,7 @@ private extension PagingView {
         )
 
         if keepsScrollViewAbovePageControl {
-            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 40).isActive = true
+            pageControl.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10).isActive = true
         } else {
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         }
