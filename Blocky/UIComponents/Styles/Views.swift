@@ -117,6 +117,13 @@ enum ViewStyle {
             }
         }
 
+        enum Image {
+            static func apply(to button: UIButton, systemName: String) {
+                button.setImage(UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
+                button.tintColor = Color.ice
+            }
+        }
+
     }
 
     enum Field {
@@ -139,6 +146,15 @@ enum ViewStyle {
                 field.line.backgroundColor = Color.cove
                 field.backgroundColor = .clear
             }
+        }
+    }
+
+    enum Shadow {
+        static func apply(to layer: CALayer) {
+            layer.shadowColor = Color.black.cgColor
+            layer.shadowOpacity = 0.5
+            layer.shadowOffset = CGSize(width: 0, height: 2)
+            layer.shadowRadius = 4
         }
     }
 

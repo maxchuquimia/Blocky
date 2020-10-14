@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        if !UserDefaults.standard.bool(forKey: "didWriteExampleFilters") && filterDataSource.readFilters().isEmpty {
-            UserDefaults.standard.setValue(true, forKey: "didWriteExampleFilters")
+        if Persistence.didWriteExampleFilters.value != true && filterDataSource.readFilters().isEmpty {
+            Persistence.didWriteExampleFilters.value = true
+
             let examples = [
                 Filter(identifier: UUID(), name: "“STOP” Filter", rule: .suffix(string: "STOP"), isCaseSensitive: true, order: 0),
                 Filter(identifier: UUID(), name: ".xyz URL Filter", rule: .regex(expression: "(http:|https:).*\\.xyz"), isCaseSensitive: false, order: 1),

@@ -24,13 +24,11 @@ class PagingView: UIView {
     }
 
     let nextPageButton: UIButton = make {
-        $0.setImage(UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
-        $0.tintColor = Color.ice
+        ViewStyle.Button.Image.apply(to: $0, systemName: "arrow.right")
     }
 
     let closeButton: UIButton = make {
-        $0.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
-        $0.tintColor = Color.ice
+        ViewStyle.Button.Image.apply(to: $0, systemName: "xmark")
         $0.setContentHuggingPriority(.required, for: .vertical)
     }
 

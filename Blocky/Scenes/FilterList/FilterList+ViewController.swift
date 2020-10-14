@@ -40,7 +40,7 @@ extension FilterList {
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            navigationItem.titleView = makeNavigationBarTitle(Copy("FilterList.Title"))
+            navigationItem.titleView = NavigationBar.makeTitle(Copy("FilterList.Title"))
             bind()
         }
 
@@ -52,8 +52,9 @@ extension FilterList {
 
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            if !UserDefaults.standard.bool(forKey: "didShowOnboarding") {
-                UserDefaults.standard.setValue(true, forKey: "didShowOnboarding")
+            if Persistence.didShowOnboarding.value != true {
+                Persistence.didShowOnboarding.value = true
+                
                 let vc = OnboardingViewController()
                 present(vc, animated: true, completion: nil)
             }

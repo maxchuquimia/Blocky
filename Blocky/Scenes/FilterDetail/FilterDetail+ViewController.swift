@@ -78,14 +78,14 @@ private extension FilterDetail.ViewController {
     }
 
     func renderNew() {
-        navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.New"))
+        navigationItem.titleView = NavigationBar.makeTitle(Copy("FilterDetail.Title.New"))
         let filter: Filter = .make(with: .contains)
         loadedFilter = filter
         contentView.load(filter: filter)
     }
 
     func render(editing filter: Filter) {
-        navigationItem.titleView = makeNavigationBarTitle(Copy("FilterDetail.Title.Edit"))
+        navigationItem.titleView = NavigationBar.makeTitle(Copy("FilterDetail.Title.Edit"))
         loadedFilter = filter
         contentView.load(filter: filter)
     }

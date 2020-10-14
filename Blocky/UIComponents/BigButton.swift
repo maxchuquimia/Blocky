@@ -51,7 +51,7 @@ class BigButton: UIButton {
 
     @objc func touchUp() {
         UIView.animate(withDuration: 0.2) {
-            self.background.shadowLayer.shadowRadius = 4
+            ViewStyle.Shadow.apply(to: self.background.shadowLayer)
             self.alpha = 1.0
         }
     }

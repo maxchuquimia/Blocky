@@ -17,6 +17,14 @@ class NavigationBar: UINavigationBar {
 
     required init?(coder: NSCoder) { die() }
 
+    static func makeTitle(_ text: String) -> UIView {
+        let label: UILabel = make {
+            ViewStyle.Label.PageTitle.apply(to: $0)
+        }
+        label.text = text
+        return label
+    }
+
 }
 
 private extension NavigationBar {
@@ -42,12 +50,4 @@ private extension NavigationBar {
         )
     }
 
-}
-
-func makeNavigationBarTitle(_ text: String) -> UIView {
-    let label: UILabel = make {
-        ViewStyle.Label.PageTitle.apply(to: $0)
-    }
-    label.text = text
-    return label
 }

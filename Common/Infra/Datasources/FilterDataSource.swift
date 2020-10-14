@@ -15,7 +15,7 @@ protocol FilterDataSourceInterface {
 
 class FilterDataSource {
 
-    private let databaseName = "Filters.blocky"
+    private static let databaseName = "Filters.blocky"
     private let disk: DiskDataSourceInterface
 
     init(disk: DiskDataSourceInterface = DiskDataSource()) {
@@ -27,7 +27,7 @@ class FilterDataSource {
 extension FilterDataSource: FilterDataSourceInterface {
 
     func readFilters() -> [Filter] {
-        guard let data = disk.readData(named: databaseName) else { return [] }
+        guard let data = disk.readData(named: FilterDataSource.databaseName) else { return [] }
         do {
             return try JSONDecoder().decode([Filter].self, from: data)
         } catch {
@@ -39,7 +39,7 @@ extension FilterDataSource: FilterDataSourceInterface {
     func write(filters: [Filter]) {
         do {
             let data = try JSONEncoder().encode(filters)
-            disk.write(data: data, named: databaseName)
+            disk.write(data: data, named: FilterDataSource.databaseName)
         } catch {
             LogError("Unable to write filters because", error)
         }

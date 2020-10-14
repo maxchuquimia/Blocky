@@ -13,6 +13,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.koamaru
+
         let image = UIImage(named: "hexagon")!
         let imageView: UIImageView = make {
             $0.image = image

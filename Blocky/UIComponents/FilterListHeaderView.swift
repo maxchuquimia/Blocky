@@ -15,9 +15,8 @@ class FilterListHeaderView: UICollectionReusableView {
     }
 
     let button: UIButton = make {
-        $0.setImage(UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
+        ViewStyle.Button.Image.apply(to: $0, systemName: "plus")
         $0.contentMode = .bottom
-        $0.tintColor = Color.ice
     }
 
     var buttonAction: () -> () = { }

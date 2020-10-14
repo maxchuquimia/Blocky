@@ -30,7 +30,6 @@ class ListView<Option: ListOption>: UIStackView {
 
 }
 
-
 extension ListView {
 
     func select(item: Option) {

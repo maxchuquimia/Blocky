@@ -108,4 +108,5 @@ private class HelpCard: UIView {
     }
 
     required init?(coder: NSCoder) { die() }
+    
 }

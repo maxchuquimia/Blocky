@@ -35,10 +35,7 @@ class CardView: UIView {
         backgroundColor = Color.white
         layer.addSublayer(shadowLayer)
 
-        shadowLayer.shadowColor = Color.black.cgColor
-        shadowLayer.shadowOpacity = 0.5
-        shadowLayer.shadowOffset = CGSize(width: 0, height: 2)
-        shadowLayer.shadowRadius = 4
+        ViewStyle.Shadow.apply(to: shadowLayer)
     }
 
 }

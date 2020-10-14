@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5102CB4D2537183C0056CCE9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5102CB4C2537183C0056CCE9 /* Persistence.swift */; };
 		51096736252F215A00EBFF5E /* FilterList+Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51096735252F215A00EBFF5E /* FilterList+Controller.swift */; };
 		5109673E252F21D400EBFF5E /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109673D252F21D400EBFF5E /* General.swift */; };
 		5109673F252F21D400EBFF5E /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5109673D252F21D400EBFF5E /* General.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5102CB4C2537183C0056CCE9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		51096735252F215A00EBFF5E /* FilterList+Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterList+Controller.swift"; sourceTree = "<group>"; };
 		5109673D252F21D400EBFF5E /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		51096746252F222000EBFF5E /* Make.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Make.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		51096773252F28B400EBFF5E /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				5102CB4C2537183C0056CCE9 /* Persistence.swift */,
 				51096776252F28C700EBFF5E /* Extensions */,
 			);
 			path = Infra;
@@ -481,6 +484,7 @@
 				51292FA625317B0B00825F6C /* DiskDataSource.swift in Sources */,
 				51292FCB2531C02800825F6C /* FilterDetail+Controller.swift in Sources */,
 				5109674E252F22BE00EBFF5E /* FilterList+View.swift in Sources */,
+				5102CB4D2537183C0056CCE9 /* Persistence.swift in Sources */,
 				51096736252F215A00EBFF5E /* FilterList+Controller.swift in Sources */,
 				51096753252F232100EBFF5E /* FilterList.swift in Sources */,
 				51500ADB2532762A00C50B50 /* CardTitleTextField.swift in Sources */,

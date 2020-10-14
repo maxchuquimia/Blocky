@@ -10,7 +10,7 @@ import UIKit
 
 class FilterSummaryCell: UICollectionViewCell {
 
-    enum Metrics {
+    private enum Metrics {
         static let verticalSpacing: CGFloat = 4.0
         static let horizontalSpacing: CGFloat = 4.0
     }
