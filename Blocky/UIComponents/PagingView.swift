@@ -15,6 +15,7 @@ class PagingView: UIView {
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
         $0.isPagingEnabled = true
+        $0.accessibilityIdentifier = AI.PageView.scrollView
     }
 
     let pageControl: UIPageControl = make {
@@ -24,10 +25,12 @@ class PagingView: UIView {
     }
 
     let nextPageButton: UIButton = make {
+        $0.accessibilityIdentifier = AI.PageView.nextPage
         ViewStyle.Button.Image.apply(to: $0, systemName: "arrow.right")
     }
 
     let closeButton: UIButton = make {
+        $0.accessibilityIdentifier = AI.PageView.close
         ViewStyle.Button.Image.apply(to: $0, systemName: "xmark")
         $0.setContentHuggingPriority(.required, for: .vertical)
     }

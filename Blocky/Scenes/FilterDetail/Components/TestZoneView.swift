@@ -36,6 +36,7 @@ class TestZoneView: CardView {
 
     let textField: CardValueTextView = make {
         ViewStyle.Field.TestZone.apply(to: $0)
+        $0.accessibilityIdentifier = AI.FilterDetail.testZoneTextView
         $0.placeholderLabel.text = Copy("FilterDetail.TestZone.Placeholder")
     }
 

@@ -47,6 +47,7 @@ class CardValueTextView: UITextView {
 private extension CardValueTextView {
 
     func setup() {
+        backgroundColor = .clear
         isScrollEnabled = false
         contentInset = .zero
         textContainerInset = .zero

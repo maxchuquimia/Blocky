@@ -23,9 +23,8 @@ extension FilterList {
                 $0.text = Copy("FilterList.Banner.Message")
             }
             let button: UIButton = make {
-                $0.setImage(UIImage(systemName: "chevron.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)), for: .normal)
+                ViewStyle.Button.Image.apply(to: $0, systemName: "chevron.right")
                 $0.contentMode = .bottom
-                $0.tintColor = Color.ice
                 $0.isUserInteractionEnabled = false
                 $0.accessibilityTraits = .notEnabled
             }

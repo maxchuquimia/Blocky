@@ -156,6 +156,7 @@ extension FilterList.ViewController: UICollectionViewDataSource {
         case .enabled:
             header.titleLabel.text = Copy("FilterList.Table.Enabled")
             header.button.isHidden = false
+            header.button.accessibilityIdentifier = AI.FilterList.newFilterButton
             header.buttonAction = { [weak self] in
                 self?.showEditor(for: .new)
             }

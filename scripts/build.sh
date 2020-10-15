@@ -6,7 +6,7 @@ ARTIFACT="Blocky"
 set -e
 set -o xtrace
 
-caffeinate -w "$BASHPID" &
+cd "$(dirname "$0")/../"
 
 git checkout master
 

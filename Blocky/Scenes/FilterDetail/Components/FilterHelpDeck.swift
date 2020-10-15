@@ -28,6 +28,7 @@ class FilterHelpDeck: PagingView {
         nextPageButton.isHidden = true
         pageControl.currentPageIndicatorTintColor = nil
         pageControl.pageIndicatorTintColor = nil
+        scrollView.accessibilityIdentifier = AI.FilterDetail.helpScrollView
 
         let helpDeckTitle: UILabel = make {
             $0.text = Copy("Filter.Help.Title")

@@ -49,8 +49,9 @@ private extension ListView {
         alignment = .leading
         spacing = 0
 
-        for option in options {
+        for (idx, option) in options.enumerated() {
             let (view, button) = makeAndStoreRow(text: option.title)
+            button.accessibilityIdentifier = AI.ListView.option(at: idx)
             addArrangedSubview(view)
 
             button.addAction(for: .touchUpInside) { [weak self, weak button] in

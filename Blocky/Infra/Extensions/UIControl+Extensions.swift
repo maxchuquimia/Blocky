@@ -19,6 +19,8 @@ private class ClosureSleeve {
 
     @objc func invoke() {
         closure()
+        // dark mode!
+        // lower spacing on home button devices
     }
 }
 

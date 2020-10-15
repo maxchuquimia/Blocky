@@ -57,6 +57,13 @@
 		51500AF42532B76A00C50B50 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF22532B76A00C50B50 /* Regex.swift */; };
 		51500AF82532BB9800C50B50 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500AF72532BB9800C50B50 /* BigButton.swift */; };
 		51500B0A2533114900C50B50 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51500B092533114900C50B50 /* BaseViewController.swift */; };
+		5150300D2537B31300C8A9C2 /* BlockyAppPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150300C2537B31300C8A9C2 /* BlockyAppPreview.swift */; };
+		515030182537BC9F00C8A9C2 /* BlockyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515030172537BC9F00C8A9C2 /* BlockyApp.swift */; };
+		515030202537BCD400C8A9C2 /* ListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150301F2537BCD400C8A9C2 /* ListScreen.swift */; };
+		515030282537BF0800C8A9C2 /* TestingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515030272537BF0800C8A9C2 /* TestingSupport.swift */; };
+		515030302537C00600C8A9C2 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150302F2537C00600C8A9C2 /* DetailScreen.swift */; };
+		515030342537DAE700C8A9C2 /* TestingSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515030272537BF0800C8A9C2 /* TestingSupport.swift */; };
+		5150303B253863E800C8A9C2 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150303A253863E800C8A9C2 /* OnboardingScreen.swift */; };
 		5177802E253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */; };
 		517780342534591D005E8E7B /* TestZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517780332534591D005E8E7B /* TestZoneView.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
@@ -69,6 +76,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5150300F2537B31300C8A9C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51EC2AC2251094AC0076BBFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51EC2AC9251094AC0076BBFC;
+			remoteInfo = Blocky;
+		};
 		51EC2AEA251094E70076BBFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51EC2AC2251094AC0076BBFC /* Project object */;
@@ -137,6 +151,14 @@
 		51500AF22532B76A00C50B50 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		51500AF72532BB9800C50B50 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
 		51500B092533114900C50B50 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5150300A2537B31300C8A9C2 /* BlockyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5150300C2537B31300C8A9C2 /* BlockyAppPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockyAppPreview.swift; sourceTree = "<group>"; };
+		5150300E2537B31300C8A9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		515030172537BC9F00C8A9C2 /* BlockyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockyApp.swift; sourceTree = "<group>"; };
+		5150301F2537BCD400C8A9C2 /* ListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreen.swift; sourceTree = "<group>"; };
+		515030272537BF0800C8A9C2 /* TestingSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSupport.swift; sourceTree = "<group>"; };
+		5150302F2537C00600C8A9C2 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		5150303A253863E800C8A9C2 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		517780332534591D005E8E7B /* TestZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestZoneView.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +174,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		515030072537B31300C8A9C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51EC2AC7251094AC0076BBFC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				5102CB4C2537183C0056CCE9 /* Persistence.swift */,
+				515030272537BF0800C8A9C2 /* TestingSupport.swift */,
 				51096776252F28C700EBFF5E /* Extensions */,
 			);
 			path = Infra;
@@ -315,12 +345,26 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5150300B2537B31300C8A9C2 /* BlockyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				515030172537BC9F00C8A9C2 /* BlockyApp.swift */,
+				5150301F2537BCD400C8A9C2 /* ListScreen.swift */,
+				5150302F2537C00600C8A9C2 /* DetailScreen.swift */,
+				5150303A253863E800C8A9C2 /* OnboardingScreen.swift */,
+				5150300C2537B31300C8A9C2 /* BlockyAppPreview.swift */,
+				5150300E2537B31300C8A9C2 /* Info.plist */,
+			);
+			path = BlockyUITests;
+			sourceTree = "<group>";
+		};
 		51EC2AC1251094AC0076BBFC = {
 			isa = PBXGroup;
 			children = (
 				51096739252F21B500EBFF5E /* Common */,
 				51EC2ACC251094AC0076BBFC /* Blocky */,
 				51EC2AE6251094E70076BBFC /* MessageFilter */,
+				5150300B2537B31300C8A9C2 /* BlockyUITests */,
 				51EC2ACB251094AC0076BBFC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -330,6 +374,7 @@
 			children = (
 				51EC2ACA251094AC0076BBFC /* Blocky.app */,
 				51EC2AE5251094E70076BBFC /* MessageFilter.appex */,
+				5150300A2537B31300C8A9C2 /* BlockyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +407,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		515030092537B31300C8A9C2 /* BlockyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 515030132537B31300C8A9C2 /* Build configuration list for PBXNativeTarget "BlockyUITests" */;
+			buildPhases = (
+				515030062537B31300C8A9C2 /* Sources */,
+				515030072537B31300C8A9C2 /* Frameworks */,
+				515030082537B31300C8A9C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				515030102537B31300C8A9C2 /* PBXTargetDependency */,
+			);
+			name = BlockyUITests;
+			productName = BlockyUITests;
+			productReference = 5150300A2537B31300C8A9C2 /* BlockyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		51EC2AC9251094AC0076BBFC /* Blocky */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51EC2ADE251094AE0076BBFC /* Build configuration list for PBXNativeTarget "Blocky" */;
@@ -404,10 +467,14 @@
 		51EC2AC2251094AC0076BBFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Chuquimian Productions";
 				TargetAttributes = {
+					515030092537B31300C8A9C2 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 51EC2AC9251094AC0076BBFC;
+					};
 					51EC2AC9251094AC0076BBFC = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -431,11 +498,19 @@
 			targets = (
 				51EC2AC9251094AC0076BBFC /* Blocky */,
 				51EC2AE4251094E70076BBFC /* MessageFilter */,
+				515030092537B31300C8A9C2 /* BlockyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		515030082537B31300C8A9C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51EC2AC8251094AC0076BBFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +536,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		515030062537B31300C8A9C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				515030302537C00600C8A9C2 /* DetailScreen.swift in Sources */,
+				5150300D2537B31300C8A9C2 /* BlockyAppPreview.swift in Sources */,
+				5150303B253863E800C8A9C2 /* OnboardingScreen.swift in Sources */,
+				515030182537BC9F00C8A9C2 /* BlockyApp.swift in Sources */,
+				515030202537BCD400C8A9C2 /* ListScreen.swift in Sources */,
+				515030342537DAE700C8A9C2 /* TestingSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51EC2AC6251094AC0076BBFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -495,6 +583,7 @@
 				5128BB96253570D90083D7A5 /* OnboardingViewController.swift in Sources */,
 				51096778252F28E100EBFF5E /* Combine+Extensions.swift in Sources */,
 				51096747252F222000EBFF5E /* Make.swift in Sources */,
+				515030282537BF0800C8A9C2 /* TestingSupport.swift in Sources */,
 				5128BB91253506770083D7A5 /* PagingView.swift in Sources */,
 				51292F8D2531213A00825F6C /* CardView.swift in Sources */,
 				5128BB9C2535715D0083D7A5 /* OnboardingPage.swift in Sources */,
@@ -528,6 +617,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		515030102537B31300C8A9C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51EC2AC9251094AC0076BBFC /* Blocky */;
+			targetProxy = 5150300F2537B31300C8A9C2 /* PBXContainerItemProxy */;
+		};
 		51EC2AEB251094E70076BBFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 51EC2AE4251094E70076BBFC /* MessageFilter */;
@@ -547,6 +641,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		515030112537B31300C8A9C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AXFS8D8E46;
+				INFOPLIST_FILE = BlockyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.BlockyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Blocky;
+			};
+			name = Debug;
+		};
+		515030122537B31300C8A9C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AXFS8D8E46;
+				INFOPLIST_FILE = BlockyUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.BlockyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Blocky;
+			};
+			name = Release;
+		};
 		51EC2ADC251094AE0076BBFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -756,6 +890,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		515030132537B31300C8A9C2 /* Build configuration list for PBXNativeTarget "BlockyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				515030112537B31300C8A9C2 /* Debug */,
+				515030122537B31300C8A9C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		51EC2AC5251094AC0076BBFC /* Build configuration list for PBXProject "Blocky" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -20,6 +20,7 @@ extension FilterDetail {
         let scrollView: UIScrollView = make {
             $0.backgroundColor = .clear
             $0.contentInset = Metrics.defaultScrollviewInset
+            $0.accessibilityIdentifier = AI.FilterDetail.mainScrollView
         }
 
         let scrollingStack: UIStackView = make {
@@ -31,6 +32,7 @@ extension FilterDetail {
 
         let saveButton: BigButton = make {
             $0.customTitle.text = Copy("FilterDetail.Button.Save")
+            $0.accessibilityIdentifier = AI.FilterDetail.saveButton
             ViewStyle.Button.Green.apply(to: $0)
         }
         let deleteButton: BigButton = make {
@@ -118,6 +120,7 @@ extension FilterDetail.View {
 private extension FilterDetail.View {
 
     func setup() {
+        accessibilityIdentifier = AI.FilterDetail.background
 
         let scrollViewContent: UIView = make {
             $0.backgroundColor = .clear
@@ -167,7 +170,7 @@ private extension FilterDetail.View {
             lowerButtonsStack.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20),
             lowerButtonsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CommonMetrics.margin),
             lowerButtonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CommonMetrics.margin),
-            lowerButtonsStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            lowerButtonsStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         )
     }
 
@@ -219,6 +222,7 @@ private extension FilterDetail.View {
 
     func addContainsFields(strings: [String]) {
         let value = makeCardValueTextView()
+        value.accessibilityIdentifier = AI.FilterDetail.firstValueTextView
         value.placeholderLabel.text = Copy("Filter.Edit.Properties.Contains.Placeholder")
         value.text = strings.first ?? ""
         let section1 = makeCardSection(title: Copy("Filter.Edit.Properties.Contains.Title"), content: value)
@@ -236,6 +240,7 @@ private extension FilterDetail.View {
 
     func addSingleField(rule: Filter.Rule, value: String) {
         let valueView = makeCardValueTextView()
+        valueView.accessibilityIdentifier = AI.FilterDetail.firstValueTextView
         valueView.placeholderLabel.text = rule.valueFieldPlaceholder
         valueView.text = value
         enteredValues.append({ [weak valueView] in valueView?.text ?? "" })
