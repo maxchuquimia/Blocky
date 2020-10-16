@@ -53,6 +53,16 @@
                ReferencedContainer = "container:Blocky.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "51DDDD18253965DE00CE65E0"
+               BuildableName = "BlockyTests.xctest"
+               BlueprintName = "BlockyTests"
+               ReferencedContainer = "container:Blocky.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

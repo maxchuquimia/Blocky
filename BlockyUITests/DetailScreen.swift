@@ -20,7 +20,7 @@ class DetailScreen {
     var background: XCUICoordinate {
         app.otherElements[AI.FilterDetail.background]
             .coordinate(withNormalizedOffset: .zero)
-            .withOffset(CGVector(dx: 5, dy: 80))
+            .withOffset(CGVector(dx: 5, dy: 200))
     }
 
     var firstValueField: XCUIElement { app.textViews[AI.FilterDetail.firstValueTextView] }

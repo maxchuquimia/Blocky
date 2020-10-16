@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Persistence.didWriteExampleFilters.value = true
 
             let examples = [
-                Filter(identifier: UUID(), name: "“STOP” Filter", rule: .suffix(string: "STOP"), isCaseSensitive: true, order: 0),
                 Filter(identifier: UUID(), name: ".xyz URL Filter", rule: .regex(expression: "(http:|https:).*\\.xyz"), isCaseSensitive: false, order: 1),
-                Filter(identifier: UUID(), name: "“Final Notice” Filter", rule: .contains(substrings: ["Final Notice", "overdue"]), isCaseSensitive: false, order: 0),
+                Filter(identifier: UUID(), name: "“Overdue” Filter", rule: .contains(substrings: ["OVERDUE"]), isCaseSensitive: true, order: 0),
             ]
 
             filterDataSource.write(filters: examples)

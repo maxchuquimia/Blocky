@@ -15,7 +15,7 @@ class BlockyAppPreview: XCTestCase {
     var listScreen: ListScreen!
     var detailScreen: DetailScreen!
 
-    let tinyDelay: TimeInterval = 1
+    let tinyDelay: TimeInterval = 0.5
     let shortDelay: TimeInterval = 1.5
     let longDelay: TimeInterval = 4
 
@@ -45,7 +45,6 @@ class BlockyAppPreview: XCTestCase {
         app.tap(listScreen.newFilterButton)
         app.pause(for: shortDelay)
 
-        app.tap(detailScreen.regexFilterOption)
         app.tap(detailScreen.endsWithFilterOption)
 
         app.tap(detailScreen.firstValueField)

@@ -10,7 +10,11 @@ import Foundation
 
 class AggregateFilterInterpreter {
 
-    let dataSource: FilterDataSourceInterface = FilterDataSource()
+    let dataSource: FilterDataSourceInterface
+
+    init(dataSource: FilterDataSourceInterface = FilterDataSource()) {
+        self.dataSource = dataSource
+    }
 
     func isSpam(message: String) -> Bool {
         let filters = dataSource.readFilters()

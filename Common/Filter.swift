@@ -44,7 +44,7 @@ extension Filter {
             name: existing?.name ?? "",
             rule: rule,
             isCaseSensitive: existing?.isCaseSensitive ?? false,
-            order: existing?.order ?? -1
+            order: existing?.order ?? Int(Date().timeIntervalSince1970)
         )
     }
 

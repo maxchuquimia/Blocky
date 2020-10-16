@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "51EC2AC9251094AC0076BBFC"
+            BuildableName = "Blocky.app"
+            BlueprintName = "Blocky"
+            ReferencedContainer = "container:Blocky.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +46,16 @@
                BlueprintIdentifier = "515030092537B31300C8A9C2"
                BuildableName = "BlockyUITests.xctest"
                BlueprintName = "BlockyUITests"
+               ReferencedContainer = "container:Blocky.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "51DDDD18253965DE00CE65E0"
+               BuildableName = "BlockyTests.xctest"
+               BlueprintName = "BlockyTests"
                ReferencedContainer = "container:Blocky.xcodeproj">
             </BuildableReference>
          </TestableReference>

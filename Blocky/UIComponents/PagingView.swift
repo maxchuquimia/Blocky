@@ -88,7 +88,7 @@ private extension PagingView {
 
             pageControl.leadingAnchor.constraint(equalTo: leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: trailingAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
 
             nextPageButton.centerYAnchor.constraint(equalTo: pageControl.centerYAnchor),
             nextPageButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CommonMetrics.margin),

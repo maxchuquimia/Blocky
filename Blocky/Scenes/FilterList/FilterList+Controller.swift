@@ -65,7 +65,7 @@ extension FilterList.Controller {
 private extension FilterList.Controller {
 
     func readFilters() {
-        allFilters = filterDataSource.readFilters()
+        allFilters = filterDataSource.readFilters().sorted(by: { $0.order > $1.order })
     }
 
     func storeFilters() {

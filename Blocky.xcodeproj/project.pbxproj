@@ -66,6 +66,10 @@
 		5150303B253863E800C8A9C2 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5150303A253863E800C8A9C2 /* OnboardingScreen.swift */; };
 		5177802E253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */; };
 		517780342534591D005E8E7B /* TestZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517780332534591D005E8E7B /* TestZoneView.swift */; };
+		51DDDD1C253965DE00CE65E0 /* FilterInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDDD1B253965DE00CE65E0 /* FilterInterpreterTests.swift */; };
+		51DDDD28253966FB00CE65E0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDDD27253966FB00CE65E0 /* Helpers.swift */; };
+		51DDDD3225396C6900CE65E0 /* AggregateFilterInterpreterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDDD3125396C6900CE65E0 /* AggregateFilterInterpreterTests.swift */; };
+		51DDDD3825396CF100CE65E0 /* FilterDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DDDD3725396CF100CE65E0 /* FilterDataSourceMock.swift */; };
 		51EC2ACE251094AC0076BBFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACD251094AC0076BBFC /* AppDelegate.swift */; };
 		51EC2AD0251094AC0076BBFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */; };
 		51EC2AD2251094AC0076BBFC /* FilterList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC2AD1251094AC0076BBFC /* FilterList+ViewController.swift */; };
@@ -77,6 +81,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		5150300F2537B31300C8A9C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51EC2AC2251094AC0076BBFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51EC2AC9251094AC0076BBFC;
+			remoteInfo = Blocky;
+		};
+		51DDDD1E253965DE00CE65E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51EC2AC2251094AC0076BBFC /* Project object */;
 			proxyType = 1;
@@ -161,6 +172,12 @@
 		5150303A253863E800C8A9C2 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		5177802D253448D6005E8E7B /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		517780332534591D005E8E7B /* TestZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestZoneView.swift; sourceTree = "<group>"; };
+		51DDDD19253965DE00CE65E0 /* BlockyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51DDDD1B253965DE00CE65E0 /* FilterInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInterpreterTests.swift; sourceTree = "<group>"; };
+		51DDDD1D253965DE00CE65E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51DDDD27253966FB00CE65E0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		51DDDD3125396C6900CE65E0 /* AggregateFilterInterpreterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateFilterInterpreterTests.swift; sourceTree = "<group>"; };
+		51DDDD3725396CF100CE65E0 /* FilterDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataSourceMock.swift; sourceTree = "<group>"; };
 		51EC2ACA251094AC0076BBFC /* Blocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC2ACD251094AC0076BBFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC2ACF251094AC0076BBFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +192,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		515030072537B31300C8A9C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51DDDD16253965DE00CE65E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,6 +382,18 @@
 			path = BlockyUITests;
 			sourceTree = "<group>";
 		};
+		51DDDD1A253965DE00CE65E0 /* BlockyTests */ = {
+			isa = PBXGroup;
+			children = (
+				51DDDD1B253965DE00CE65E0 /* FilterInterpreterTests.swift */,
+				51DDDD3125396C6900CE65E0 /* AggregateFilterInterpreterTests.swift */,
+				51DDDD3725396CF100CE65E0 /* FilterDataSourceMock.swift */,
+				51DDDD27253966FB00CE65E0 /* Helpers.swift */,
+				51DDDD1D253965DE00CE65E0 /* Info.plist */,
+			);
+			path = BlockyTests;
+			sourceTree = "<group>";
+		};
 		51EC2AC1251094AC0076BBFC = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +401,7 @@
 				51EC2ACC251094AC0076BBFC /* Blocky */,
 				51EC2AE6251094E70076BBFC /* MessageFilter */,
 				5150300B2537B31300C8A9C2 /* BlockyUITests */,
+				51DDDD1A253965DE00CE65E0 /* BlockyTests */,
 				51EC2ACB251094AC0076BBFC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -375,6 +412,7 @@
 				51EC2ACA251094AC0076BBFC /* Blocky.app */,
 				51EC2AE5251094E70076BBFC /* MessageFilter.appex */,
 				5150300A2537B31300C8A9C2 /* BlockyUITests.xctest */,
+				51DDDD19253965DE00CE65E0 /* BlockyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -424,6 +462,24 @@
 			productName = BlockyUITests;
 			productReference = 5150300A2537B31300C8A9C2 /* BlockyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		51DDDD18253965DE00CE65E0 /* BlockyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51DDDD22253965DE00CE65E0 /* Build configuration list for PBXNativeTarget "BlockyTests" */;
+			buildPhases = (
+				51DDDD15253965DE00CE65E0 /* Sources */,
+				51DDDD16253965DE00CE65E0 /* Frameworks */,
+				51DDDD17253965DE00CE65E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51DDDD1F253965DE00CE65E0 /* PBXTargetDependency */,
+			);
+			name = BlockyTests;
+			productName = BlockyTests;
+			productReference = 51DDDD19253965DE00CE65E0 /* BlockyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		51EC2AC9251094AC0076BBFC /* Blocky */ = {
 			isa = PBXNativeTarget;
@@ -475,6 +531,10 @@
 						CreatedOnToolsVersion = 12.0.1;
 						TestTargetID = 51EC2AC9251094AC0076BBFC;
 					};
+					51DDDD18253965DE00CE65E0 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 51EC2AC9251094AC0076BBFC;
+					};
 					51EC2AC9251094AC0076BBFC = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -499,12 +559,20 @@
 				51EC2AC9251094AC0076BBFC /* Blocky */,
 				51EC2AE4251094E70076BBFC /* MessageFilter */,
 				515030092537B31300C8A9C2 /* BlockyUITests */,
+				51DDDD18253965DE00CE65E0 /* BlockyTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		515030082537B31300C8A9C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51DDDD17253965DE00CE65E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,6 +614,17 @@
 				515030182537BC9F00C8A9C2 /* BlockyApp.swift in Sources */,
 				515030202537BCD400C8A9C2 /* ListScreen.swift in Sources */,
 				515030342537DAE700C8A9C2 /* TestingSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51DDDD15253965DE00CE65E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51DDDD3825396CF100CE65E0 /* FilterDataSourceMock.swift in Sources */,
+				51DDDD3225396C6900CE65E0 /* AggregateFilterInterpreterTests.swift in Sources */,
+				51DDDD1C253965DE00CE65E0 /* FilterInterpreterTests.swift in Sources */,
+				51DDDD28253966FB00CE65E0 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +701,11 @@
 			target = 51EC2AC9251094AC0076BBFC /* Blocky */;
 			targetProxy = 5150300F2537B31300C8A9C2 /* PBXContainerItemProxy */;
 		};
+		51DDDD1F253965DE00CE65E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51EC2AC9251094AC0076BBFC /* Blocky */;
+			targetProxy = 51DDDD1E253965DE00CE65E0 /* PBXContainerItemProxy */;
+		};
 		51EC2AEB251094E70076BBFC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 51EC2AE4251094E70076BBFC /* MessageFilter */;
@@ -678,6 +762,48 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Blocky;
+			};
+			name = Release;
+		};
+		51DDDD20253965DE00CE65E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AXFS8D8E46;
+				INFOPLIST_FILE = BlockyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.BlockyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blocky.app/Blocky";
+			};
+			name = Debug;
+		};
+		51DDDD21253965DE00CE65E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AXFS8D8E46;
+				INFOPLIST_FILE = BlockyTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuquimianproductions.BlockyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blocky.app/Blocky";
 			};
 			name = Release;
 		};
@@ -895,6 +1021,15 @@
 			buildConfigurations = (
 				515030112537B31300C8A9C2 /* Debug */,
 				515030122537B31300C8A9C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51DDDD22253965DE00CE65E0 /* Build configuration list for PBXNativeTarget "BlockyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51DDDD20253965DE00CE65E0 /* Debug */,
+				51DDDD21253965DE00CE65E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

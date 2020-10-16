@@ -38,5 +38,5 @@ fi
 xcodebuild -project Blocky.xcodeproj -scheme AppStore -sdk iphoneos -configuration Release archive -archivePath /tmp/build/${ARTIFACT}.xcarchive
 
 # Export & upload the archive
-xcodebuild -exportArchive -archivePath /tmp/build/${ARTIFACT}.xcarchive -allowProvisioningUpdates -exportOptionsPlist exportOptions.plist
+xcodebuild -exportArchive -archivePath /tmp/build/${ARTIFACT}.xcarchive -allowProvisioningUpdates -exportOptionsPlist scripts/exportOptions.plist
 

@@ -79,9 +79,8 @@ private extension FilterDetail.ViewController {
 
     func renderNew() {
         navigationItem.titleView = NavigationBar.makeTitle(Copy("FilterDetail.Title.New"))
-        let filter: Filter = .make(with: .contains)
-        loadedFilter = filter
-        contentView.load(filter: filter)
+        loadedFilter = nil
+        contentView.load(filter: .make(with: .contains))
     }
 
     func render(editing filter: Filter) {
@@ -96,7 +95,7 @@ private extension FilterDetail.ViewController {
             name: contentView.titleField.text ?? "",
             rule: contentView.currentRule,
             isCaseSensitive: contentView.caseSensitiveControl.selectedSegmentIndex == 0,
-            order: loadedFilter?.order ?? -1
+            order: loadedFilter?.order ?? Int(Date().timeIntervalSince1970)
         )
     }
 
@@ -140,6 +139,12 @@ private extension FilterDetail.ViewController {
 
     @objc func backPressed() {
         guard loadedFilter != currentFilter else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+
+        if loadedFilter == nil && currentFilter.firstRuleValue.isEmpty && currentFilter.name.isEmpty {
+            // Special case: when creating a new filter but there's no value yet then allow user to go back
             navigationController?.popViewController(animated: true)
             return
         }

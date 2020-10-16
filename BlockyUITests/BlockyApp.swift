@@ -17,7 +17,7 @@ class BlockyApp: XCUIApplication {
 
     func tap(_ element: XCUIElement) {
         guard element.waitForExistence(timeout: 3.0) else { return XCTFail("\(element) does not exist") }
-        element.press(forDuration: 0.7) // Looks nicer in the App Preview recording
+        element.press(forDuration: 0.5) // Looks nicer in the App Preview recording
     }
 
     func tap(_ coordinate: XCUICoordinate) {
